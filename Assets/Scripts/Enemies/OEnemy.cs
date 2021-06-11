@@ -9,4 +9,9 @@ public class OEnemy : Enemy
     {
         //must make this
     }
+
+    public override void EnemyMove()
+    {
+        //must make this
+    }
 }

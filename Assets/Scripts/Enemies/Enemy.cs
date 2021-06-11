@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
         EnemyMove();
     }
 
-    public void EnemyMove()
+    public virtual void EnemyMove()
     {
         //must make this
     }
