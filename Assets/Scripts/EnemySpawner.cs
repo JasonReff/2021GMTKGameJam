@@ -4,22 +4,63 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public int time;
+    public float time;
+    public float enemyDelay;
     public int round;
     public Queue<int> enemyQueue;
     public GameObject OEnemyPrefab;
+    public int enemiesKilled;
+    public int maximumEnemies;
+
+    void Update()
+    {
+        time += Time.deltaTime;
+        if(time > enemyDelay)
+        {
+            time = 0;
+            GetNextEnemy();
+        }
+        if (enemiesKilled == maximumEnemies)
+        {
+            //RoundEnd();
+        }
+    }
+
+    void Start()
+    {
+        RoundStart();
+    }
+
     void RoundStart()
     {
         time = 0;
+        if (round < 5)
+        {
+            enemyDelay = 6f - (float)round;
+        }
+        else
+        {
+            enemyDelay = 1f;
+        }
+        enemiesKilled = 0;
         GenerateEnemyQueue();
     }
 
     void GenerateEnemyQueue()
     {
-        for (int i = 0; i <= round*10; i++)
+        maximumEnemies = round * 10;
+        for (int i = 0; i <= maximumEnemies; i++)
         {
             int enemyID = UnityEngine.Random.Range(1, 2);
             enemyQueue.Enqueue(enemyID);
+        }
+    }
+
+    void GetNextEnemy()
+    {
+        if (enemyQueue.Count > 0)
+        {
+            SpawnEnemy(enemyQueue.Dequeue());
         }
     }
 

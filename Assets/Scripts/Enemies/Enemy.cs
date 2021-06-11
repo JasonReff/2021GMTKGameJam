@@ -6,15 +6,25 @@ public class Enemy : MonoBehaviour
 {
     public int id;
     public float movementSpeed;
+    public float minimumDistanceFromPLayer;
+    public float distanceFromPlayer;
+    public Vector2 enemyToPlayer;
+    public GameObject player;
 
     void Update()
     {
-        EnemyMove();
+        enemyToPlayer = transform.position - player.transform.position;
+        distanceFromPlayer = enemyToPlayer.magnitude;
+        if (distanceFromPlayer > minimumDistanceFromPLayer)
+        {
+            EnemyMove();
+        }
     }
 
     public virtual void EnemyMove()
     {
-        //must make this
+        Vector2 direction = new Vector2 (enemyToPlayer.x / enemyToPlayer.magnitude, enemyToPlayer.y / enemyToPlayer.magnitude);
+        transform.position += new Vector3 (direction.x * movementSpeed, direction.y * movementSpeed, 0);
     }
 
     public virtual void EnemyFire()
@@ -26,5 +36,10 @@ public class Enemy : MonoBehaviour
     {
         Destroy(this);
         //play death animation
+    }
+
+    public void Awake()
+    {
+        EnemyMove();
     }
 }
