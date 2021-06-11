@@ -13,7 +13,10 @@ public class PlayerReticle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Fire();
+        }
     }
 
     private void FixedUpdate()
@@ -21,16 +24,12 @@ public class PlayerReticle : MonoBehaviour
         rb.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 8);
         characterToReticle = rb.transform.position - character.rb.transform.position;
         characterToReticle.Normalize();
-        if (Input.GetMouseButtonDown(1))
-        {
-            Fire();
-        }
     }
 
     public void Fire()
     {
         GameObject projectile = Instantiate(projectilePrefab);
-        projectile.transform.position = (Vector2)rb.transform.position + characterToReticle;
+        projectile.transform.position = (Vector2)character.rb.transform.position + characterToReticle;
         projectile.GetComponent<Rigidbody2D>().AddForce(characterToReticle * bulletForce);
     }
 }

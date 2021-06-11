@@ -359,7 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 215497892}
   characterToReticle: {x: 0, y: 0}
-  bulletForce: 2
+  bulletForce: 25
   rb: {fileID: 544102437}
   projectilePrefab: {fileID: 1927049429077323858, guid: 8c03245c01e988747815146ad5a4f8a0, type: 3}
 --- !u!212 &544102435

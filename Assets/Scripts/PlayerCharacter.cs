@@ -4,10 +4,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacter : Entity
 {
 
-    public float moveSpeed = 5f;
+    
     public Rigidbody2D rb;
 
     Vector2 movement;
@@ -24,6 +24,6 @@ public class PlayerCharacter : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
     }
 }
