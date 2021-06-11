@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class PlayerReticle : MonoBehaviour
 {
-
+    public PlayerCharacter character;
+    public Vector2 characterToReticle;
     public Rigidbody2D rb;
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    private void FixedUpdate()
+    {
         rb.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 8);
+        characterToReticle = rb.transform.position - character.rb.transform.position;
+        characterToReticle.Normalize();
+    }
+
+    public void Fire()
+    {
+
     }
 }
