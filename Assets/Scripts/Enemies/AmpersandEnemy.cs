@@ -21,8 +21,8 @@ public class AmpersandEnemy : Enemy
 
     void Fire1Projectile()
     {
-        Vector2 newDirection = -enemyToPlayer;
+        Vector2 newDirection = -enemyToPlayer / 10;
         GameObject projectile = Instantiate(enemyProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile.GetComponent<Projectile>().projectileForce);
+        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
     }
 }
