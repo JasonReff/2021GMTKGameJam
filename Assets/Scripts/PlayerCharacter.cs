@@ -6,14 +6,14 @@ using UnityEngine.UIElements;
 
 public class PlayerCharacter : MonoBehaviour
 {
-
+    public PlayerReticle reticle;
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public GameObject OCorruptPrefab;
     public GameObject QuestionMarkCorruptPrefab;
     public GameObject AmpersandCorruptPrefab;
     public GameObject ThreeCorruptPrefab;
-
+    public GameObject projectilePrefab;
     Vector2 movement;
     void Start()
     {
@@ -51,10 +51,19 @@ public class PlayerCharacter : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+        if (Input.GetMouseButtonDown(0))
+        {
+            Fire();
+        }
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    public virtual void Fire()
+    {
+        
     }
 }

@@ -28,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        enemyQueue = new Queue<int> { };
         RoundStart();
     }
 
@@ -88,11 +89,11 @@ public class EnemySpawner : MonoBehaviour
                 yCord = UnityEngine.Random.Range(-6, 6);
                 break;
         }
-        Vector2 cordinates = new Vector2(xCord, yCord);
+        Vector2 coordinates = new Vector2((float)xCord, (float)yCord);
         switch (e)
         {
             case 1:
-                GameObject oEnemy = Instantiate(OEnemyPrefab, cordinates, Quaternion.identity);
+                GameObject oEnemy = Instantiate(OEnemyPrefab, coordinates, Quaternion.identity);
                 oEnemy.GetComponent<Enemy>().player = GameObject.Find("PlayerCharacter");
                 break;
         }
