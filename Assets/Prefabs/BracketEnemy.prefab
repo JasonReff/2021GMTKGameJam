@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2349574697562187672}
   - component: {fileID: -4448154646100010705}
   - component: {fileID: 8044737896209566673}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BracketEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

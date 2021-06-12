@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8321355136945903580}
   - component: {fileID: 2947712320621627303}
   - component: {fileID: 5366775222876197824}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AsteriskEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

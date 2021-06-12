@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1601201511918967751}
   - component: {fileID: 7633334625654910156}
   - component: {fileID: 6901044807590529806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AmpersandCorruptPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
