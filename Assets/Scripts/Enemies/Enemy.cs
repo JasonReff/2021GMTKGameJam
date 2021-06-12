@@ -16,14 +16,14 @@ public class Enemy : MonoBehaviour
     public int hp;
     public GameObject enemyProjectile;
 
-    private void Awake()
+    public virtual void Awake()
     {
         StartCoroutine(EnemyMove());
         StartCoroutine(FireAtPlayer());
         StartCoroutine(FindPlayer());
     }
 
-    void Update()
+    public virtual void Update()
     {
         enemyToPlayer = transform.position - player.transform.position;
         distanceFromPlayer = enemyToPlayer.magnitude;

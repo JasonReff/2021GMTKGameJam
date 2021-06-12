@@ -107,7 +107,7 @@ MonoBehaviour:
   enemyToPlayer: {x: 0, y: 0}
   player: {fileID: 0}
   hp: 0
-  enemyProjectile: {fileID: 1927049429077323858, guid: 8c03245c01e988747815146ad5a4f8a0, type: 3}
+  enemyProjectile: {fileID: 6098041795347662542, guid: 79609dfa7aa975d46b9f2a04cf231a55, type: 3}
 --- !u!61 &-356469699739319196
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -29,6 +29,11 @@ public class PlayerCharacter : MonoBehaviour
 
     public virtual void PlayerCollision(Collision2D collision)
     {
+        if (IsEnemyShielded(collision))
+        {
+            PlayerDeath();
+            return;
+        }
         int corruptNumber = collision.collider.gameObject.GetComponent<Enemy>().id;
         Destroy(collision.collider.gameObject);
         GameObject corruptPlayer = null;
@@ -54,7 +59,17 @@ public class PlayerCharacter : MonoBehaviour
                 break;
         }
         corruptPlayer.GetComponent<PlayerCharacter>().reticle = reticle;
+        GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = corruptPlayer.GetComponent<PlayerCharacter>();
         gameObject.SetActive(false);
+    }
+
+    bool IsEnemyShielded(Collision2D collision)
+    {
+        if (collision.collider.GetComponent<BracketEnemy>().isShieldOn)
+        {
+            return true;
+        }
+        else return false;
     }
 
     void Update()
@@ -75,5 +90,10 @@ public class PlayerCharacter : MonoBehaviour
     public virtual void Fire()
     {
         
+    }
+
+    public void PlayerDeath()
+    {
+
     }
 }
