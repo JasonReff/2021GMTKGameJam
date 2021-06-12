@@ -238,6 +238,7 @@ MonoBehaviour:
   time: 0
   enemyDelay: 0
   round: 1
+  activePlayer: {fileID: 0}
   OEnemyPrefab: {fileID: 8341006678280993083, guid: b44cb1a371c95ac449e652f289edd713, type: 3}
   enemiesKilled: 0
   maximumEnemies: 0
@@ -434,7 +435,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38aa6a21d8928d7488872c855b1887b7, type: 3}
   m_Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -453,8 +454,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275324555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 16.543472, y: 8.461739, z: 1}
+  m_LocalPosition: {x: 0.017, y: 0, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -469,11 +470,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1494129703}
   - component: {fileID: 1494129702}
-  - component: {fileID: 1494129701}
   - component: {fileID: 1494129700}
   - component: {fileID: 1494129704}
   - component: {fileID: 1494129705}
-  m_Layer: 0
+  - component: {fileID: 1494129701}
+  m_Layer: 6
   m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,16 +496,13 @@ MonoBehaviour:
   reticle: {fileID: 0}
   moveSpeed: 5
   rb: {fileID: 1494129701}
-  OCorruptPrefab: {fileID: 0}
+  OCorruptPrefab: {fileID: 469421702683710036, guid: b3736884fc027964f88132dd6835fd42, type: 3}
   QuestionMarkCorruptPrefab: {fileID: 0}
   AmpersandCorruptPrefab: {fileID: 0}
   ThreeCorruptPrefab: {fileID: 0}
   projectilePrefab: {fileID: 0}
-  OCorruptPrefab: {fileID: 1873551061}
-  QuestionMarkCorruptPrefab: {fileID: 0}
-  AmpersandCorruptPrefab: {fileID: 0}
-  ThreeCorruptPrefab: {fileID: 0}
-  Rigidbody2D:
+--- !u!50 &1494129701
+Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -630,5 +628,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.15, y: 0.15}
   m_EdgeRadius: 0
