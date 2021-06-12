@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public float time;
     public float enemyDelay;
     public int round;
+    public PlayerCharacter activePlayer;
     public Queue<int> enemyQueue;
     public GameObject OEnemyPrefab;
     public int enemiesKilled;
@@ -28,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        activePlayer = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>();
         enemyQueue = new Queue<int> { };
         RoundStart();
     }
@@ -94,7 +96,7 @@ public class EnemySpawner : MonoBehaviour
         {
             case 1:
                 GameObject oEnemy = Instantiate(OEnemyPrefab, coordinates, Quaternion.identity);
-                oEnemy.GetComponent<Enemy>().player = GameObject.Find("PlayerCharacter");
+                oEnemy.GetComponent<Enemy>().player = activePlayer.gameObject;
                 break;
         }
     }
