@@ -52,10 +52,10 @@ public class PlayerCharacter : MonoBehaviour
                 corruptPlayer = Instantiate(AmpersandCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
                 break;
             case 5:
-                corruptPlayer = Instantiate(BracketCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(AsteriskCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
                 break;
             case 6:
-                corruptPlayer = Instantiate(AsteriskCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(BracketCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
                 break;
         }
         corruptPlayer.GetComponent<PlayerCharacter>().reticle = reticle;
