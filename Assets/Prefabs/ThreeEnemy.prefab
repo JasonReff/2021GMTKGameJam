@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4810321805805490631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.62, y: 2.02, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -102,8 +102,12 @@ MonoBehaviour:
   movementSpeed: 1
   minimumDistanceFromPlayer: 0
   distanceFromPlayer: 0
+  maximumFiringRange: 0
+  fireRate: 0
   enemyToPlayer: {x: 0, y: 0}
   player: {fileID: 0}
+  hp: 0
+  enemyProjectile: {fileID: 1927049429077323858, guid: 8c03245c01e988747815146ad5a4f8a0, type: 3}
 --- !u!50 &-3480657994069815583
 Rigidbody2D:
   serializedVersion: 4

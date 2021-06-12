@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteriskEnemy : Enemy
+public class BracketEnemy : Enemy
 {
-
     public override void EnemyFire()
     {
         GameObject projectile = Instantiate(enemyProjectile);

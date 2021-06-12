@@ -13,6 +13,8 @@ public class PlayerCharacter : MonoBehaviour
     public GameObject QuestionMarkCorruptPrefab;
     public GameObject AmpersandCorruptPrefab;
     public GameObject ThreeCorruptPrefab;
+    public GameObject AsteriskCorruptPrefab;
+    public GameObject BracketCorruptPrefab;
     public GameObject projectilePrefab;
     Vector2 movement;
     void Start()
@@ -29,21 +31,29 @@ public class PlayerCharacter : MonoBehaviour
     {
         int corruptNumber = collision.collider.gameObject.GetComponent<Enemy>().id;
         Destroy(collision.collider.gameObject);
+        GameObject corruptPlayer = null;
         switch (corruptNumber)
         {
             case 1:
-                GameObject oCorrupt = Instantiate(OCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(OCorruptPrefab, gameObject.transform.position, Quaternion.identity);
                 break;
             case 2:
-                GameObject questionMarkCorrupt = Instantiate(QuestionMarkCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(QuestionMarkCorruptPrefab, gameObject.transform.position, Quaternion.identity);
                 break;
             case 3:
-                GameObject threeCorrupt = Instantiate(ThreeCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(ThreeCorruptPrefab, gameObject.transform.position, Quaternion.identity);
                 break;
             case 4:
-                GameObject ampersandCorrupt = Instantiate(AmpersandCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(AmpersandCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                break;
+            case 5:
+                corruptPlayer = Instantiate(BracketCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                break;
+            case 6:
+                corruptPlayer = Instantiate(AsteriskCorruptPrefab, gameObject.transform.position, Quaternion.identity);
                 break;
         }
+        corruptPlayer.GetComponent<PlayerCharacter>().reticle = reticle;
         gameObject.SetActive(false);
     }
 
