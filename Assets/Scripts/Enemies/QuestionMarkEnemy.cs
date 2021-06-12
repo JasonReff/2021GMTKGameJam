@@ -5,7 +5,13 @@ using Unity.VisualScripting;
 
 public class QuestionMarkEnemy : Enemy
 {
-
+    public GameObject shield;
+    public float boostForce;
+    public bool isShieldOn;
+    public GameObject OProjectile;
+    public GameObject ThreeProjectile;
+    public GameObject AsteriskProjectile;
+    public GameObject AmpersandProjectile;
     public override void EnemyFire()
     {
         int shot = UnityEngine.Random.Range(1, 6);
@@ -49,6 +55,7 @@ public class QuestionMarkEnemy : Enemy
                 projectile8.GetComponent<Rigidbody2D>().AddForce(-newDirection * 10 * projectile1.GetComponent<Projectile>().projectileForce);
                 break;
             case 5:
+                StartCoroutine(ShieldAndBoost());
                 break;
         }
     }
@@ -67,5 +74,41 @@ public class QuestionMarkEnemy : Enemy
         Vector2 newDirection = -enemyToPlayer /10;
         GameObject projectile = Instantiate(enemyProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
         projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
+    }
+
+    public IEnumerator ShieldAndBoost()
+    {
+        TurnShieldOn();
+        Boost();
+        yield return new WaitForSeconds(0.2f);
+        Decelerate();
+        yield return new WaitForSeconds(0.3f);
+        TurnShieldOff();
+    }
+
+    void TurnShieldOn()
+    {
+        isShieldOn = true;
+        shield.SetActive(true);
+    }
+
+    void Decelerate()
+    {
+        Vector2 velocity = gameObject.GetComponent<Rigidbody2D>().velocity;
+        Vector2 decelerationForce = -velocity * boostForce * 0.5f;
+        gameObject.GetComponent<Rigidbody2D>().AddForce(decelerationForce);
+    }
+
+    void TurnShieldOff()
+    {
+        isShieldOn = false;
+        shield.SetActive(false);
+    }
+
+    void Boost()
+    {
+        Vector2 boostDirection = -enemyToPlayer;
+        gameObject.GetComponent<Rigidbody2D>().AddForce(boostDirection * boostForce);
+
     }
 }

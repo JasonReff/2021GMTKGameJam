@@ -40,22 +40,22 @@ public class PlayerCharacter : MonoBehaviour
         switch (corruptNumber)
         {
             case 1:
-                corruptPlayer = Instantiate(OCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(OCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
                 break;
             case 2:
-                corruptPlayer = Instantiate(QuestionMarkCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(QuestionMarkCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
                 break;
             case 3:
-                corruptPlayer = Instantiate(ThreeCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(ThreeCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
                 break;
             case 4:
-                corruptPlayer = Instantiate(AmpersandCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(AmpersandCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
                 break;
             case 5:
-                corruptPlayer = Instantiate(BracketCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(BracketCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
                 break;
             case 6:
-                corruptPlayer = Instantiate(AsteriskCorruptPrefab, gameObject.transform.position, Quaternion.identity);
+                corruptPlayer = Instantiate(AsteriskCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
                 break;
         }
         corruptPlayer.GetComponent<PlayerCharacter>().reticle = reticle;

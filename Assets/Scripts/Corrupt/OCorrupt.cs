@@ -9,7 +9,6 @@ public class OCorrupt : PlayerCharacter
         GameObject player = GameObject.Find("PlayerCharacter");
         player.SetActive(true);
         Destroy(gameObject);
-        //add death animation
     }
 
     //public override void Fire()
