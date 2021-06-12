@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     public int hp;
     public GameObject enemyProjectile;
+    public GameObject Glitch;
+    public Animator anim;
 
     public virtual void Awake()
     {
@@ -116,7 +118,12 @@ public class Enemy : MonoBehaviour
 
     public void EnemyDeath()
     {
+        Invoke("Destroy", 1.0f);
+        anim.SetBool("dead", true);
+    }
+
+    public void Destroy()
+    {
         Destroy(this);
-        //play death animation
     }
 }
