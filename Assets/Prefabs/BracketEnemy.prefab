@@ -110,7 +110,7 @@ MonoBehaviour:
   hp: 0
   enemyProjectile: {fileID: 4740193028943283921, guid: 8f03f6ced663bbe428a8d89402dc1379, type: 3}
   shield: {fileID: 8440197022523641538}
-  boostForce: 0
+  boostForce: 1
   isShieldOn: 0
 --- !u!50 &-4448154646100010705
 Rigidbody2D:

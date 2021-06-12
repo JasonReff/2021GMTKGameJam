@@ -110,7 +110,7 @@ MonoBehaviour:
   hp: 0
   enemyProjectile: {fileID: 1927049429077323858, guid: 8c03245c01e988747815146ad5a4f8a0, type: 3}
   shield: {fileID: 7760507069045959987}
-  boostForce: 0
+  boostForce: 1
   isShieldOn: 0
   OProjectile: {fileID: 4740193028943283921, guid: 8f03f6ced663bbe428a8d89402dc1379, type: 3}
   ThreeProjectile: {fileID: 8697085910663280614, guid: deb408760ab11c04ea1f7f9b785d349a, type: 3}
