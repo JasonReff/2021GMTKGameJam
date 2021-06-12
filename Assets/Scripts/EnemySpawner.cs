@@ -31,7 +31,17 @@ public class EnemySpawner : MonoBehaviour
     {
         activePlayer = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>();
         enemyQueue = new Queue<int> { };
+        PhysicsCollisionAdjustment();
         RoundStart();
+    }
+
+    void PhysicsCollisionAdjustment()
+    {
+        Physics.IgnoreLayerCollision(8, 9);
+        Physics.IgnoreLayerCollision(8, 8);
+        Physics.IgnoreLayerCollision(9, 9);
+        Physics.IgnoreLayerCollision(6, 8);
+        Physics.IgnoreLayerCollision(7, 9);
     }
 
     void RoundStart()
