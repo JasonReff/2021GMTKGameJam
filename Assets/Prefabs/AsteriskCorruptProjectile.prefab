@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AsteriskCorruptProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 3464871310035789833, guid: 3d55283812adafd47b9a68c493c52a47, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3464871310035789836, guid: 3d55283812adafd47b9a68c493c52a47, type: 3}
       propertyPath: m_Color.b
       value: 0.6353471
@@ -66,6 +70,10 @@ PrefabInstance:
     - target: {fileID: 3464871310035789837, guid: 3d55283812adafd47b9a68c493c52a47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965844157284372197, guid: 3d55283812adafd47b9a68c493c52a47, type: 3}
+      propertyPath: rangeInSeconds
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8965844157284372197, guid: 3d55283812adafd47b9a68c493c52a47, type: 3}
       propertyPath: projectileForce
