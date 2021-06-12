@@ -5,7 +5,10 @@ using UnityEngine;
 public class AmpersandCorrupt : PlayerCharacter
 {
 
-
+    public override void Start()
+    {
+        
+    }
     public override void PlayerCollision(Collision2D collision)
     {
         GameObject player = GameObject.Find("PlayerCharacter");
@@ -32,8 +35,8 @@ public class AmpersandCorrupt : PlayerCharacter
 
     void Fire1Projectile()
     {
-        Vector2 newDirection = -reticle.characterToReticle / 10;
+        Vector2 newDirection = -reticle.characterToReticle;
         GameObject projectile = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
+        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile.GetComponent<Projectile>().projectileForce);
     }
 }

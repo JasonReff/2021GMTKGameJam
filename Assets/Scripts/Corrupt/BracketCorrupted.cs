@@ -5,6 +5,11 @@ using UnityEngine;
 public class BracketCorrupted : PlayerCharacter
 {
 
+    public override void Start()
+    {
+        
+    }
+
     public bool isShieldOn;
     public GameObject shield;
     public float boostForce;

@@ -5,6 +5,11 @@ using Unity.VisualScripting;
 
 public class ThreeCorrupt : PlayerCharacter
 {
+
+    public override void Start()
+    {
+        
+    }
     public override void PlayerCollision(Collision2D collision)
     {
         GameObject player = GameObject.Find("PlayerCharacter");

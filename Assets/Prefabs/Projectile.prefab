@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileForce: 50
-  rangeInSeconds: 1
+  rangeInSeconds: 2
   time: 0

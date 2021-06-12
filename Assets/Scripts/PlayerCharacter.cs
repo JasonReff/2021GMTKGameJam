@@ -20,7 +20,7 @@ public class PlayerCharacter : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip shootSound;
     Vector2 movement;
-    void Start()
+    public virtual void Start()
     {
         transform.position = new Vector2(0, 0);
     }
