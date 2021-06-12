@@ -21,7 +21,7 @@ public class AsteriskCorrupted : PlayerCharacter
 
     public override void Fire()
     {
-        Vector2 newDirection = -reticle.characterToReticle / 10;
+        Vector2 newDirection = reticle.characterToReticle / 10;
         GameObject projectile1 = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
         GameObject projectile2 = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection + (Vector3)newDirection.Perpendicular1(), Quaternion.identity);
         GameObject projectile3 = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection + (Vector3)newDirection.Perpendicular2(), Quaternion.identity);

@@ -19,6 +19,7 @@ public class PlayerCharacter : MonoBehaviour
     public Animator anim;
     public AudioSource audioSource;
     public AudioClip shootSound;
+    public AudioClip deathSound;
     public GameObject Glitch;
     Vector2 movement;
     public virtual void Start()
@@ -129,6 +130,9 @@ public class PlayerCharacter : MonoBehaviour
 
     public void PlayerDeath()
     {
+        audioSource.clip = deathSound;
+        audioSource.Play();
+        gameObject.GetComponent<BoxCollider2D>().size = new Vector2 (0, 0);
         Invoke("GameOver", 2f);
         anim.SetBool("dead", true);
     }

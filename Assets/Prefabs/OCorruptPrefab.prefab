@@ -129,6 +129,10 @@ MonoBehaviour:
   AsteriskCorruptPrefab: {fileID: 0}
   BracketCorruptPrefab: {fileID: 0}
   projectilePrefab: {fileID: 7142133735434815157, guid: f1d68a672df028d40b22159bca1dec87, type: 3}
+  anim: {fileID: 0}
+  audioSource: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 70748a9a5514bf945a8e9e0ffb51172d, type: 3}
+  Glitch: {fileID: 0}
 --- !u!61 &6041722617201326692
 BoxCollider2D:
   m_ObjectHideFlags: 0
