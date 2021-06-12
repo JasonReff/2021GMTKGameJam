@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AmpersandCorrupt : PlayerCharacter
 {
+
+
     public override void PlayerCollision(Collision2D collision)
     {
         GameObject player = GameObject.Find("PlayerCharacter");
@@ -14,6 +16,8 @@ public class AmpersandCorrupt : PlayerCharacter
 
     public override void Fire()
     {
+        audioSource.clip = shootSound;
+        audioSource.Play();
         StartCoroutine(FireProjectiles());
     }
 

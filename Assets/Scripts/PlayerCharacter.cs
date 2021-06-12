@@ -16,6 +16,8 @@ public class PlayerCharacter : MonoBehaviour
     public GameObject AsteriskCorruptPrefab;
     public GameObject BracketCorruptPrefab;
     public GameObject projectilePrefab;
+    public AudioSource audioSource;
+    public AudioClip shootSound;
     Vector2 movement;
     void Start()
     {
@@ -65,6 +67,7 @@ public class PlayerCharacter : MonoBehaviour
         if (corruptPlayer != null)
         {
             corruptPlayer.GetComponent<PlayerCharacter>().reticle = reticle;
+            corruptPlayer.GetComponent<PlayerCharacter>().audioSource = audioSource;
             GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = corruptPlayer.GetComponent<PlayerCharacter>();
         }
         gameObject.SetActive(false);

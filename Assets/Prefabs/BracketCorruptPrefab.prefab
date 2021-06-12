@@ -213,6 +213,8 @@ MonoBehaviour:
   AsteriskCorruptPrefab: {fileID: 0}
   BracketCorruptPrefab: {fileID: 0}
   projectilePrefab: {fileID: 0}
+  audioSource: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 01fd566401477da4d81a42c8f31b507e, type: 3}
   isShieldOn: 0
   shield: {fileID: 4243835799855967635}
   boostForce: 1
