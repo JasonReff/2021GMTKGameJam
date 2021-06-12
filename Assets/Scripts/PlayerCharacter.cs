@@ -34,7 +34,11 @@ public class PlayerCharacter : MonoBehaviour
             PlayerDeath();
             return;
         }
-        int corruptNumber = collision.collider.gameObject.GetComponent<Enemy>().id;
+        int corruptNumber = 0;
+        if (collision.collider.gameObject.GetComponent<Enemy>() != null)
+        {
+            corruptNumber = collision.collider.gameObject.GetComponent<Enemy>().id;
+        }
         Destroy(collision.collider.gameObject);
         GameObject corruptPlayer = null;
         switch (corruptNumber)
