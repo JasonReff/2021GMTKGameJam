@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
     void GenerateEnemyQueue()
     {
         maximumEnemies = round * 10;
-        for (int i = 0; i <= maximumEnemies; i++)
+        for (int i = 0; i < maximumEnemies; i++)
         {
             int enemyID = UnityEngine.Random.Range(1, 2);
             enemyQueue.Enqueue(enemyID);
