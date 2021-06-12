@@ -9,7 +9,7 @@ public class AsteriskCorrupted : PlayerCharacter
         Glitch.SetActive(true);
         Glitch.transform.position = gameObject.transform.position;
         Destroy(gameObject);
-        //add death animation
+        //add uncorrupt animation
     }
 
     //public override void Fire()

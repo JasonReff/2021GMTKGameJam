@@ -10,10 +10,10 @@ public class BracketCorrupted : PlayerCharacter
     public float boostForce;
     public override void PlayerCollision(Collision2D collision)
     {
-        GameObject player = GameObject.Find("PlayerCharacter");
-        player.SetActive(true);
+        Glitch.SetActive(true);
+        Glitch.transform.position = gameObject.transform.position;
         Destroy(gameObject);
-        //add death animation
+        //add uncorrupt animation
     }
 
     public override void Fire()
