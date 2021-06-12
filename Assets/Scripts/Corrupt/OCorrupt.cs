@@ -7,13 +7,14 @@ public class OCorrupt : PlayerCharacter
 
     public override void Start()
     {
-        
+
     }
     public override void PlayerCollision(Collision2D collision)
     {
-        GameObject player = GameObject.Find("PlayerCharacter");
-        player.SetActive(true);
+        Glitch.SetActive(true);
+        Glitch.transform.position = gameObject.transform.position;
         Destroy(gameObject);
+        //add uncorrupt animation
     }
 
     public override void Fire()
