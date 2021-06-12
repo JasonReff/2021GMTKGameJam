@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmpersandEnemyProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 4740193028943283924, guid: 8f03f6ced663bbe428a8d89402dc1379, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 263328390f6a3504ea73822c41e3e450, type: 3}
     - target: {fileID: 4740193028943283925, guid: 8f03f6ced663bbe428a8d89402dc1379, type: 3}
       propertyPath: m_RootOrder
       value: 0
