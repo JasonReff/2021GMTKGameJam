@@ -19,6 +19,7 @@ public class PlayerCharacter : MonoBehaviour
     public Animator anim;
     public AudioSource audioSource;
     public AudioClip shootSound;
+    public GameObject Glitch;
     Vector2 movement;
     public virtual void Start()
     {
@@ -28,12 +29,11 @@ public class PlayerCharacter : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerCollision(collision);
-        anim.SetBool("dead", true);
     }
 
     public virtual void PlayerCollision(Collision2D collision)
     {
-        if (IsEnemyShielded(collision))
+        if (IsEnemyDamage(collision))
         {
             PlayerDeath();
             return;
@@ -70,12 +70,14 @@ public class PlayerCharacter : MonoBehaviour
         {
             corruptPlayer.GetComponent<PlayerCharacter>().reticle = reticle;
             corruptPlayer.GetComponent<PlayerCharacter>().audioSource = audioSource;
+            corruptPlayer.GetComponent<PlayerCharacter>().Glitch = gameObject;
             GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = corruptPlayer.GetComponent<PlayerCharacter>();
         }
+
         gameObject.SetActive(false);
     }
 
-    bool IsEnemyShielded(Collision2D collision)
+    bool IsEnemyDamage(Collision2D collision)
     {
         if (collision.collider.GetComponent<BracketEnemy>() != null) 
         {
@@ -84,6 +86,10 @@ public class PlayerCharacter : MonoBehaviour
                 return true;
             }
             else return false;
+        }
+        else if (collision.collider.GetComponent<Projectile>() != null)
+        {
+            return true;
         }
         else return false;
     }
@@ -123,6 +129,12 @@ public class PlayerCharacter : MonoBehaviour
 
     public void PlayerDeath()
     {
+        Invoke("GameOver", 2f);
+        anim.SetBool("dead", true);
+    }
 
+    public void GameOver()
+    {
+        Application.LoadLevel("GameOver");
     }
 }
