@@ -16,6 +16,7 @@ public class PlayerCharacter : MonoBehaviour
     public GameObject AsteriskCorruptPrefab;
     public GameObject BracketCorruptPrefab;
     public GameObject projectilePrefab;
+    public Animator anim;
     public AudioSource audioSource;
     public AudioClip shootSound;
     Vector2 movement;
@@ -27,6 +28,7 @@ public class PlayerCharacter : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerCollision(collision);
+        anim.SetBool("dead", true);
     }
 
     public virtual void PlayerCollision(Collision2D collision)

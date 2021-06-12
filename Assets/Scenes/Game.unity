@@ -796,6 +796,7 @@ MonoBehaviour:
   AsteriskCorruptPrefab: {fileID: 1643227765376979036, guid: e397794ca46d9b7459ce1b24e3eb773d, type: 3}
   BracketCorruptPrefab: {fileID: 4570940942409807050, guid: 304713280cf1d1b43aa078bf62d1f263, type: 3}
   projectilePrefab: {fileID: 1927049429077323858, guid: 8c03245c01e988747815146ad5a4f8a0, type: 3}
+  anim: {fileID: 1494129704}
   audioSource: {fileID: 518488568}
   shootSound: {fileID: 0}
 --- !u!50 &1494129701

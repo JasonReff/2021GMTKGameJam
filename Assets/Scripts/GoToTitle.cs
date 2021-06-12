@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Quit : MonoBehaviour
+public class GoToTitle : MonoBehaviour
 {
     void OnMouseDown()
     {
@@ -11,8 +12,7 @@ public class Quit : MonoBehaviour
     }
     void LoadLevel()
     {
-        gameObject.transform.position += new Vector3(0f, 1.0f, 0f);
-        Application.Quit();
+        Application.LoadLevel("Title");
     }
     void OnMouseEnter()
     {
