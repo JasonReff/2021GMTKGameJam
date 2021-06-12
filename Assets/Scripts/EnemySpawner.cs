@@ -92,7 +92,8 @@ public class EnemySpawner : MonoBehaviour
         switch (e)
         {
             case 1:
-                Instantiate(OEnemyPrefab, cordinates, Quaternion.identity); 
+                GameObject oEnemy = Instantiate(OEnemyPrefab, cordinates, Quaternion.identity);
+                oEnemy.GetComponent<Enemy>().player = GameObject.Find("PlayerCharacter");
                 break;
         }
     }
