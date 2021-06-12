@@ -67,6 +67,7 @@ public class PlayerCharacter : MonoBehaviour
         if (corruptPlayer != null)
         {
             corruptPlayer.GetComponent<PlayerCharacter>().reticle = reticle;
+            corruptPlayer.GetComponent<PlayerCharacter>().audioSource = audioSource;
             GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = corruptPlayer.GetComponent<PlayerCharacter>();
         }
         gameObject.SetActive(false);
