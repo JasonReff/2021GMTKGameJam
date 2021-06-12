@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public float time;
     public float enemyDelay;
     public int round;
+    public GameObject roundScreen;
     public PlayerCharacter activePlayer;
     public Queue<int> enemyQueue;
     public GameObject OEnemyPrefab;
@@ -28,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
         }
         if (enemiesKilled == maximumEnemies)
         {
-            //RoundEnd();
+            RoundEnd();
         }
     }
 
@@ -126,4 +127,17 @@ public class EnemySpawner : MonoBehaviour
                 break;
         }
     }
+
+    void RoundEnd()
+    {
+        activePlayer.gameObject.SetActive(false);
+    }
+
+    public void NextRound()
+    {
+        round++;
+        activePlayer.gameObject.SetActive(true);
+        RoundStart();
+    }
+
 }
