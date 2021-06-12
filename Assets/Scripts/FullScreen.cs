@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class FullScreen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public void OnMouseDown()
+    void OnMouseDown()
     {
+        gameObject.transform.position += new Vector3(0f, -1.0f, 0f);
+        Invoke("LoadLevel", 0.2f);
+    }
+    void LoadLevel()
+    {
+        gameObject.transform.position += new Vector3(0f, 1.0f, 0f);
         Screen.fullScreen = !Screen.fullScreen;
     }
-
+    void OnMouseEnter()
+    {
+        gameObject.transform.position += new Vector3(0f, -0.5f, 0f);
+        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(3.54f, 4.7f);
+    }
+    void OnMouseExit()
+    {
+        gameObject.transform.position += new Vector3(0f, 0.5f, 0f);
+        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(3.54f, 3.87f);
+    }
 }
