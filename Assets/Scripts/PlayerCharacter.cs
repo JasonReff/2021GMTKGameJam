@@ -34,7 +34,11 @@ public class PlayerCharacter : MonoBehaviour
             PlayerDeath();
             return;
         }
-        int corruptNumber = collision.collider.gameObject.GetComponent<Enemy>().id;
+        int corruptNumber = 0;
+        if (collision.collider.gameObject.GetComponent<Enemy>() != null)
+        {
+            corruptNumber = collision.collider.gameObject.GetComponent<Enemy>().id;
+        }
         Destroy(collision.collider.gameObject);
         GameObject corruptPlayer = null;
         switch (corruptNumber)
@@ -58,8 +62,11 @@ public class PlayerCharacter : MonoBehaviour
                 corruptPlayer = Instantiate(BracketCorruptPrefab, this.gameObject.transform.position, Quaternion.identity);
                 break;
         }
-        corruptPlayer.GetComponent<PlayerCharacter>().reticle = reticle;
-        GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = corruptPlayer.GetComponent<PlayerCharacter>();
+        if (corruptPlayer != null)
+        {
+            corruptPlayer.GetComponent<PlayerCharacter>().reticle = reticle;
+            GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = corruptPlayer.GetComponent<PlayerCharacter>();
+        }
         gameObject.SetActive(false);
     }
 
@@ -89,15 +96,15 @@ public class PlayerCharacter : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 newPosition = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
-        if (isWithinBounds(newPosition))
+        if (IsWithinBounds(newPosition))
         {
-            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(newPosition);
         }
     }
 
-    bool isWithinBounds(Vector2 position)
+    bool IsWithinBounds(Vector2 position)
     {
-        if (position.x < 5 && position.x > -5 && position.y < 8 && position.y > -8)
+        if (position.y < 4.5 && position.y > -4.5 && position.x < 8.5 && position.x > -8.5)
         {
             return true;
         }

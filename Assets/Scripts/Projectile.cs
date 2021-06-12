@@ -6,19 +6,26 @@ public class Projectile : MonoBehaviour
 {
 
     public float projectileForce;
+    public float rangeInSeconds;
+    public float time;
 
     private void Awake()
     {
-        Physics.IgnoreLayerCollision(8, 9);
-        Physics.IgnoreLayerCollision(6, 8);
-        Physics.IgnoreLayerCollision(7, 9);
-        Physics.IgnoreLayerCollision(8, 8);
-        Physics.IgnoreLayerCollision(9, 9);
+        time = 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
+    }
+
+    private void FixedUpdate()
+    {
+        time += Time.deltaTime;
+        if (time >= rangeInSeconds)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
