@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 855836210145059207}
   - component: {fileID: 7390917992780925817}
   - component: {fileID: 5070819977440907492}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BracketCorruptPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

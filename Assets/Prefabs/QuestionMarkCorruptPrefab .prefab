@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6200722573196995385}
   - component: {fileID: 8060648527625591033}
   - component: {fileID: 630399074307248394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'QuestionMarkCorruptPrefab '
   m_TagString: Untagged
   m_Icon: {fileID: 0}

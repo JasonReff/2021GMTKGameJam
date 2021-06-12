@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2404577367381593162}
   - component: {fileID: -3480657994069815583}
   - component: {fileID: -1761223744206855077}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ThreeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
