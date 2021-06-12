@@ -16,6 +16,8 @@ public class PlayerCharacter : MonoBehaviour
     public GameObject AsteriskCorruptPrefab;
     public GameObject BracketCorruptPrefab;
     public GameObject projectilePrefab;
+    public AudioSource audioSource;
+    public AudioClip shootSound;
     Vector2 movement;
     void Start()
     {
