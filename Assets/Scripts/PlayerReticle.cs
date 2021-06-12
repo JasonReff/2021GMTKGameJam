@@ -6,7 +6,6 @@ public class PlayerReticle : MonoBehaviour
 {
     public PlayerCharacter character;
     public Vector2 characterToReticle;
-    public float bulletForce;
     public Rigidbody2D rb;
     public GameObject projectilePrefab;
 
@@ -31,6 +30,6 @@ public class PlayerReticle : MonoBehaviour
     {
         GameObject projectile = Instantiate(projectilePrefab);
         projectile.transform.position = (Vector2)character.rb.transform.position + characterToReticle;
-        projectile.GetComponent<Rigidbody2D>().AddForce(characterToReticle * bulletForce);
+        projectile.GetComponent<Rigidbody2D>().AddForce(characterToReticle * projectile.GetComponent<Projectile>().projectileForce);
     }
 }
