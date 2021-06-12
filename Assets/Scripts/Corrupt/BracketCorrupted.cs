@@ -23,7 +23,14 @@ public class BracketCorrupted : PlayerCharacter
 
     public override void Fire()
     {
-        StartCoroutine(ShieldAndBoost());
+        if (readyToFire)
+        {
+            audioSource.clip = shootSound;
+            audioSource.Play();
+            StartCoroutine(ShieldAndBoost());
+            readyToFire = false;
+            StartCoroutine(FireRecharge());
+        }
     }
 
     public IEnumerator ShieldAndBoost()

@@ -19,9 +19,14 @@ public class AmpersandCorrupt : PlayerCharacter
 
     public override void Fire()
     {
-        audioSource.clip = shootSound;
-        audioSource.Play();
-        StartCoroutine(FireProjectiles());
+        if (readyToFire)
+        {
+            audioSource.clip = shootSound;
+            audioSource.Play();
+            StartCoroutine(FireProjectiles());
+            readyToFire = false;
+            StartCoroutine(FireRecharge());
+        }
     }
 
     IEnumerator FireProjectiles()
@@ -35,7 +40,7 @@ public class AmpersandCorrupt : PlayerCharacter
 
     void Fire1Projectile()
     {
-        Vector2 newDirection = -reticle.characterToReticle;
+        Vector2 newDirection = reticle.characterToReticle;
         GameObject projectile = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
         projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile.GetComponent<Projectile>().projectileForce);
     }

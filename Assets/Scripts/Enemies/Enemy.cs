@@ -27,14 +27,20 @@ public class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
-        enemyToPlayer = transform.position - player.transform.position;
+        if (player != null)
+        {
+            enemyToPlayer = transform.position - player.transform.position;
+        }
         distanceFromPlayer = enemyToPlayer.magnitude;
     }
 
     public IEnumerator FindPlayer()
     {
         yield return new WaitForSeconds(0.3f);
-        player = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer.gameObject;
+        if (GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer != null)
+        {
+            player = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer.gameObject;
+        }
         StartCoroutine(FindPlayer());
     }
 

@@ -726,7 +726,7 @@ MonoBehaviour:
   OEnemyPrefab: {fileID: 8341006678280993083, guid: b44cb1a371c95ac449e652f289edd713, type: 3}
   QuestionMarkEnemyPrefab: {fileID: 2810292978314846295, guid: d60e2918f0f4e6e438422e2c1a1159e4, type: 3}
   ThreeEnemyPrefab: {fileID: 4810321805805490631, guid: 3abaac2e428039d40b24a96daf9c0dd9, type: 3}
-  AmpersandEnemyPrefab: {fileID: 8576657819892387760, guid: 0c9e3d24a7abb4a4ca787afb1da82df6, type: 3}
+  AmpersandEnemyPrefab: {fileID: 6431226230629764895, guid: 0c9e3d24a7abb4a4ca787afb1da82df6, type: 3}
   AsteriskEnemyPrefab: {fileID: 6790033148114582773, guid: 445c155c8e3084a4bb659e5d5d283e54, type: 3}
   BracketEnemyPrefab: {fileID: 2862634426985125826, guid: 6544ec9e94e5dab4ba0fb4129d130a34, type: 3}
   enemiesKilled: 0

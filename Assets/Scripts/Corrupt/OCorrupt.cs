@@ -19,10 +19,15 @@ public class OCorrupt : PlayerCharacter
 
     public override void Fire()
     {
-        audioSource.clip = shootSound;
-        audioSource.Play();
-        Vector2 newDirection = reticle.characterToReticle / 10;
-        GameObject projectile = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
+        if (readyToFire)
+        {
+            audioSource.clip = shootSound;
+            audioSource.Play();
+            Vector2 newDirection = reticle.characterToReticle / 10;
+            GameObject projectile = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
+            projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
+            readyToFire = false;
+            StartCoroutine(FireRecharge());
+        }
     }
 }

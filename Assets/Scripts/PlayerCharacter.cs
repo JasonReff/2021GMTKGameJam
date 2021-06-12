@@ -21,6 +21,8 @@ public class PlayerCharacter : MonoBehaviour
     public AudioClip shootSound;
     public AudioClip deathSound;
     public GameObject Glitch;
+    public bool readyToFire = true;
+    public float fireDelay;
     Vector2 movement;
     public virtual void Start()
     {
@@ -126,6 +128,12 @@ public class PlayerCharacter : MonoBehaviour
     public virtual void Fire()
     {
         
+    }
+
+    public virtual IEnumerator FireRecharge()
+    {
+        yield return new WaitForSeconds(fireDelay);
+        readyToFire = true;
     }
 
     public void PlayerDeath()
