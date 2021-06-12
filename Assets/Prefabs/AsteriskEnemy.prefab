@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8321355136945903580}
   - component: {fileID: 2947712320621627303}
   m_Layer: 0
-  m_Name: XEnemy
+  m_Name: AsteriskEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8a25985dfc48fc742b54b6778c95faac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d830e3f8579b9a47b2e508328342f59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   movementSpeed: 0.1
-  minimumDistanceFromPLayer: 4
+  minimumDistanceFromPlayer: 0
   distanceFromPlayer: 0
   enemyToPlayer: {x: 0, y: 0}
   player: {fileID: 0}
@@ -121,7 +121,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12, y: 18.47}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
