@@ -79,12 +79,25 @@ public class Enemy : MonoBehaviour
 
     IEnumerator FireAtPlayer()
     {
-        yield return new WaitForSeconds(fireRate);
-        if (distanceFromPlayer < maximumFiringRange)
+        if (IsWithinBounds())
         {
-            EnemyFire();
+            yield return new WaitForSeconds(fireRate);
+            if (distanceFromPlayer < maximumFiringRange)
+            {
+                EnemyFire();
+            }
         }
         StartCoroutine(FireAtPlayer());
+    }
+
+    bool IsWithinBounds()
+    {
+        if (gameObject.transform.position.x < 8.5 && gameObject.transform.position.x > -8.5 &&
+            gameObject.transform.position.y < 4.5 && gameObject.transform.position.y > -4.5)
+        {
+            return true;
+        }
+        else return false;
     }
 
     public virtual void EnemyFire()
