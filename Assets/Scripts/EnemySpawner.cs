@@ -10,6 +10,11 @@ public class EnemySpawner : MonoBehaviour
     public PlayerCharacter activePlayer;
     public Queue<int> enemyQueue;
     public GameObject OEnemyPrefab;
+    public GameObject QuestionMarkEnemyPrefab;
+    public GameObject ThreeEnemyPrefab;
+    public GameObject AmpersandEnemyPrefab;
+    public GameObject AsteriskEnemyPrefab;
+    public GameObject BracketEnemyPrefab;
     public int enemiesKilled;
     public int maximumEnemies;
 
@@ -54,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
         maximumEnemies = round * 10;
         for (int i = 0; i < maximumEnemies; i++)
         {
-            int enemyID = UnityEngine.Random.Range(1, 2);
+            int enemyID = UnityEngine.Random.Range(1, 7);
             enemyQueue.Enqueue(enemyID);
         }
     }
@@ -92,11 +97,32 @@ public class EnemySpawner : MonoBehaviour
                 break;
         }
         Vector2 coordinates = new Vector2((float)xCord, (float)yCord);
+        GameObject currentEnemy = null;
         switch (e)
         {
             case 1:
-                GameObject oEnemy = Instantiate(OEnemyPrefab, coordinates, Quaternion.identity);
-                oEnemy.GetComponent<Enemy>().player = activePlayer.gameObject;
+                currentEnemy = Instantiate(OEnemyPrefab, coordinates, Quaternion.identity);
+                currentEnemy.GetComponent<Enemy>().player = activePlayer.gameObject;
+                break;
+            case 2:
+                currentEnemy = Instantiate(QuestionMarkEnemyPrefab, coordinates, Quaternion.identity);
+                currentEnemy.GetComponent<Enemy>().player = activePlayer.gameObject;
+                break;
+            case 3:
+                currentEnemy = Instantiate(ThreeEnemyPrefab, coordinates, Quaternion.identity);
+                currentEnemy.GetComponent<Enemy>().player = activePlayer.gameObject;
+                break;
+            case 4:
+                currentEnemy = Instantiate(AmpersandEnemyPrefab, coordinates, Quaternion.identity);
+                currentEnemy.GetComponent<Enemy>().player = activePlayer.gameObject;
+                break;
+            case 5:
+                currentEnemy = Instantiate(AsteriskEnemyPrefab, coordinates, Quaternion.identity);
+                currentEnemy.GetComponent<Enemy>().player = activePlayer.gameObject;
+                break;
+            case 6:
+                currentEnemy = Instantiate(BracketEnemyPrefab, coordinates, Quaternion.identity);
+                currentEnemy.GetComponent<Enemy>().player = activePlayer.gameObject;
                 break;
         }
     }

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5270983038839544711}
   - component: {fileID: 1821636935436263021}
-  - component: {fileID: 6191543379802898751}
   - component: {fileID: 8321355136945903580}
   - component: {fileID: 2947712320621627303}
+  - component: {fileID: 5366775222876197824}
   m_Layer: 0
   m_Name: AsteriskEnemy
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6790033148114582773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.010396, y: 0.59874827, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -86,24 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6191543379802898751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6790033148114582773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2cf61ec66afd0542916a248e7c13ce6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 5
-  movementSpeed: 0.1
-  minimumDistanceFromPlayer: 0
-  distanceFromPlayer: 0
-  enemyToPlayer: {x: 0, y: 0}
-  player: {fileID: 0}
 --- !u!61 &8321355136945903580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,3 +133,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5366775222876197824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6790033148114582773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2cf61ec66afd0542916a248e7c13ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 5
+  movementSpeed: 0.1
+  minimumDistanceFromPlayer: 4
+  distanceFromPlayer: 0
+  maximumFiringRange: 7
+  fireRate: 0.5
+  enemyToPlayer: {x: 0, y: 0}
+  player: {fileID: 0}
+  hp: 0
+  enemyProjectile: {fileID: 1927049429077323858, guid: 8c03245c01e988747815146ad5a4f8a0, type: 3}
