@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6200722573196995384
+--- !u!1 &8753847634081974649
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6200722573196995387}
-  - component: {fileID: 6200722573196995386}
-  - component: {fileID: 6200722573196995385}
-  - component: {fileID: 8060648527625591033}
+  - component: {fileID: 1712767186055843821}
+  - component: {fileID: 9025316101751902653}
+  - component: {fileID: 1601201511918967751}
   m_Layer: 0
-  m_Name: 'QuestionMarkCorruptPrefab '
+  m_Name: AmpersandCorruptPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6200722573196995387
+--- !u!4 &1712767186055843821
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6200722573196995384}
+  m_GameObject: {fileID: 8753847634081974649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.010396, y: 0.59874827, z: 0}
+  m_LocalPosition: {x: 1.2178233, y: 0.31715974, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6200722573196995386
+--- !u!212 &9025316101751902653
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6200722573196995384}
+  m_GameObject: {fileID: 8753847634081974649}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 71c50d3d4ffc904498f609801516342b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7bd8eb0cbbaf074b8fe9a9527125758, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,14 +84,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &6200722573196995385
+--- !u!50 &1601201511918967751
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6200722573196995384}
+  m_GameObject: {fileID: 8753847634081974649}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -106,23 +105,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8060648527625591033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6200722573196995384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d93280cb0a080f468429c60bf5edf99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reticle: {fileID: 0}
-  moveSpeed: 5
-  rb: {fileID: 6200722573196995385}
-  OCorruptPrefab: {fileID: 0}
-  QuestionMarkCorruptPrefab: {fileID: 0}
-  AmpersandCorruptPrefab: {fileID: 0}
-  ThreeCorruptPrefab: {fileID: 0}
-  projectilePrefab: {fileID: 0}
