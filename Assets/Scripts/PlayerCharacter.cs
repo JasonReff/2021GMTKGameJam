@@ -88,7 +88,20 @@ public class PlayerCharacter : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        Vector2 newPosition = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
+        if (isWithinBounds(newPosition))
+        {
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+    bool isWithinBounds(Vector2 position)
+    {
+        if (position.x < 5 && position.x > -5 && position.y < 8 && position.y > -8)
+        {
+            return true;
+        }
+        else return false;
     }
 
     public virtual void Fire()
