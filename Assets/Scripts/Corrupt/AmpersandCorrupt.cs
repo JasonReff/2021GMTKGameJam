@@ -5,7 +5,10 @@ using UnityEngine;
 public class AmpersandCorrupt : PlayerCharacter
 {
 
-
+    public override void Start()
+    {
+        
+    }
     public override void PlayerCollision(Collision2D collision)
     {
         GameObject player = GameObject.Find("PlayerCharacter");

@@ -5,6 +5,12 @@ using Unity.VisualScripting;
 
 public class AsteriskCorrupted : PlayerCharacter
 {
+
+    public override void Start()
+    {
+
+    }
+
     public override void PlayerCollision(Collision2D collision)
     {
         GameObject player = GameObject.Find("PlayerCharacter");
