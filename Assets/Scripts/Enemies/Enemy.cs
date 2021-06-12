@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public float distanceFromPlayer;
     public Vector2 enemyToPlayer;
     public GameObject player;
+    public int hp;
 
     private void Awake()
     {
@@ -72,6 +73,15 @@ public class Enemy : MonoBehaviour
     public virtual void EnemyFire()
     {
         //must make this
+    }
+
+    public void TakeDamage()
+    {
+        hp--;
+        if (hp <= 0)
+        {
+            EnemyDeath();
+        }
     }
 
     public void EnemyDeath()

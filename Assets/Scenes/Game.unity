@@ -446,6 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rb: {fileID: 1494129701}
+  OCorruptPrefab: {fileID: 0}
 --- !u!50 &1494129701
 Rigidbody2D:
   serializedVersion: 4
@@ -575,7 +576,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
---- !u!1 &1713791191
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -592,7 +592,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1713791192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -610,7 +609,6 @@ MonoBehaviour:
   OEnemyPrefab: {fileID: 8341006678280993083, guid: b44cb1a371c95ac449e652f289edd713, type: 3}
   enemiesKilled: 0
   maximumEnemies: 0
---- !u!4 &1713791193
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
