@@ -100,9 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   movementSpeed: 0.1
-  minimumDistanceFromPlayer: 0
+  minimumDistanceFromPlayer: 4
   distanceFromPlayer: 0
-  maximumFiringRange: 0
+  maximumFiringRange: 7
   fireRate: 0
   enemyToPlayer: {x: 0, y: 0}
   player: {fileID: 0}
