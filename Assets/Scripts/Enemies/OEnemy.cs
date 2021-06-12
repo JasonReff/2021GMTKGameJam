@@ -8,7 +8,8 @@ public class OEnemy : Enemy
 
     public override void EnemyFire()
     {
-        GameObject projectile = Instantiate(enemyProjectile);
-        projectile.GetComponent<Rigidbody2D>().AddForce(enemyToPlayer * projectile.GetComponent<Projectile>().projectileForce);
+        Vector2 newDirection = -enemyToPlayer;
+        GameObject projectile = Instantiate(enemyProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
+        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile.GetComponent<Projectile>().projectileForce);
     }
 }
