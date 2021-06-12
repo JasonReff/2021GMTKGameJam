@@ -65,9 +65,13 @@ public class PlayerCharacter : MonoBehaviour
 
     bool IsEnemyShielded(Collision2D collision)
     {
-        if (collision.collider.GetComponent<BracketEnemy>().isShieldOn)
+        if (collision.collider.GetComponent<BracketEnemy>() != null) 
         {
-            return true;
+            if (collision.collider.GetComponent<BracketEnemy>().isShieldOn)
+            {
+                return true;
+            }
+            else return false;
         }
         else return false;
     }
