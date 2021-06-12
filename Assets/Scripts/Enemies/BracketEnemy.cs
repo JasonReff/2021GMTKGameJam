@@ -16,10 +16,11 @@ public class BracketEnemy : Enemy
     public IEnumerator ShieldAndBoost()
     {
         TurnShieldOn();
+        yield return new WaitForSeconds(0.3f);
         Boost();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Decelerate();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         TurnShieldOff();
     }
 

@@ -128,7 +128,7 @@ MonoBehaviour:
   ThreeCorruptPrefab: {fileID: 0}
   AsteriskCorruptPrefab: {fileID: 0}
   BracketCorruptPrefab: {fileID: 0}
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 3945201064890057165, guid: e51163cb2648ba74dbd419a30c5c22cf, type: 3}
 --- !u!61 &-1433171619970568241
 BoxCollider2D:
   m_ObjectHideFlags: 0
