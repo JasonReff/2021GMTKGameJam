@@ -79,9 +79,9 @@ public class Enemy : MonoBehaviour
 
     IEnumerator FireAtPlayer()
     {
+        yield return new WaitForSeconds(fireRate);
         if (IsWithinBounds())
         {
-            yield return new WaitForSeconds(fireRate);
             if (distanceFromPlayer < maximumFiringRange)
             {
                 EnemyFire();
