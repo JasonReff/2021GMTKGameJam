@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5821350987753404066}
   - component: {fileID: 3437397395506880992}
   - component: {fileID: 855836210145059207}
+  - component: {fileID: 7390917992780925817}
   m_Layer: 0
   m_Name: BracketCorruptPrefab
   m_TagString: Untagged
@@ -105,3 +106,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7390917992780925817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570940942409807050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7be1549e41dbd0a48918f7de439a4347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticle: {fileID: 0}
+  moveSpeed: 5
+  rb: {fileID: 855836210145059207}
+  OCorruptPrefab: {fileID: 0}
+  QuestionMarkCorruptPrefab: {fileID: 0}
+  AmpersandCorruptPrefab: {fileID: 0}
+  ThreeCorruptPrefab: {fileID: 0}
+  projectilePrefab: {fileID: 0}

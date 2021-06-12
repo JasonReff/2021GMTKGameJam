@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1712767186055843821}
   - component: {fileID: 9025316101751902653}
   - component: {fileID: 1601201511918967751}
+  - component: {fileID: 7633334625654910156}
   m_Layer: 0
   m_Name: AmpersandCorruptPrefab
   m_TagString: Untagged
@@ -105,3 +106,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7633334625654910156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8753847634081974649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3492b92366d1bf242b53c3d7b9cf17da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticle: {fileID: 0}
+  moveSpeed: 5
+  rb: {fileID: 1601201511918967751}
+  OCorruptPrefab: {fileID: 0}
+  QuestionMarkCorruptPrefab: {fileID: 0}
+  AmpersandCorruptPrefab: {fileID: 0}
+  ThreeCorruptPrefab: {fileID: 0}
+  projectilePrefab: {fileID: 0}
