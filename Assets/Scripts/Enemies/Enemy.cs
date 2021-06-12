@@ -9,19 +9,31 @@ public class Enemy : MonoBehaviour
     public float movementSpeed;
     public float minimumDistanceFromPlayer;
     public float distanceFromPlayer;
+    public float maximumFiringRange;
+    public float fireRate;
     public Vector2 enemyToPlayer;
     public GameObject player;
     public int hp;
+    public GameObject enemyProjectile;
 
     private void Awake()
     {
         StartCoroutine(EnemyMove());
+        StartCoroutine(FireAtPlayer());
+        StartCoroutine(FindPlayer());
     }
 
     void Update()
     {
         enemyToPlayer = transform.position - player.transform.position;
         distanceFromPlayer = enemyToPlayer.magnitude;
+    }
+
+    public IEnumerator FindPlayer()
+    {
+        yield return new WaitForSeconds(0.3f);
+        player = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer.gameObject;
+        StartCoroutine(FindPlayer());
     }
 
     public virtual IEnumerator EnemyMove()
@@ -65,9 +77,14 @@ public class Enemy : MonoBehaviour
         transform.position -= new Vector3(direction.x * movementSpeed, direction.y * movementSpeed, 0);
     }
 
-    IEnumerator MovementDelay()
+    IEnumerator FireAtPlayer()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(fireRate);
+        if (distanceFromPlayer < maximumFiringRange)
+        {
+            EnemyFire();
+        }
+        StartCoroutine(FireAtPlayer());
     }
 
     public virtual void EnemyFire()
