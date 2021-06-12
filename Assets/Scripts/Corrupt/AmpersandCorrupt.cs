@@ -12,8 +12,24 @@ public class AmpersandCorrupt : PlayerCharacter
         //add death animation
     }
 
-    //public override void Fire()
-    //{
+    public override void Fire()
+    {
+        StartCoroutine(FireProjectiles());
+    }
 
-    //}
+    IEnumerator FireProjectiles()
+    {
+        for (int i = 0; i <= 2; i++)
+        {
+            yield return new WaitForSeconds(.2f);
+            Fire1Projectile();
+        }
+    }
+
+    void Fire1Projectile()
+    {
+        Vector2 newDirection = -reticle.characterToReticle / 10;
+        GameObject projectile = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
+        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
+    }
 }
