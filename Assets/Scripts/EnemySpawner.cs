@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
     public float time;
     public float enemyDelay;
     public int round;
+    public Text roundTextbox;
+    public int score;
+    public Text scoreTextbox;
     public GameObject roundScreen;
     public PlayerCharacter activePlayer;
     public Queue<int> enemyQueue;
@@ -18,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject BracketEnemyPrefab;
     public int enemiesKilled;
     public int maximumEnemies;
+    public Text enemiesRemainingTextbox;
 
     void Update()
     {
@@ -33,6 +38,20 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    IEnumerator RemainingEnemies()
+    {
+        yield return new WaitForSeconds(0.2f);
+        enemiesRemainingTextbox.text = "Enemies Remaining: " + (maximumEnemies - enemiesKilled).ToString();
+    }
+
+    IEnumerator DeductPoints()
+    {
+        yield return new WaitForSeconds(1.0f);
+        score--;
+        scoreTextbox.text = "Score: " + score.ToString();
+        StartCoroutine(DeductPoints());
+    }
+
     void Start()
     {
         activePlayer = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>();
@@ -43,6 +62,7 @@ public class EnemySpawner : MonoBehaviour
     void RoundStart()
     {
         time = 0;
+        roundTextbox.text = "Round: " + round.ToString();
         if (round < 5)
         {
             enemyDelay = 6f - (float)round;
@@ -52,6 +72,8 @@ public class EnemySpawner : MonoBehaviour
             enemyDelay = 1f;
         }
         enemiesKilled = 0;
+        StartCoroutine(DeductPoints());
+        StartCoroutine(RemainingEnemies());
         GenerateEnemyQueue();
     }
 
@@ -130,12 +152,21 @@ public class EnemySpawner : MonoBehaviour
 
     void RoundEnd()
     {
+        StopCoroutine(DeductPoints());
+        StopCoroutine(RemainingEnemies());
+        EndOfRoundPoints();
         activePlayer.gameObject.SetActive(false);
+    }
+
+    void EndOfRoundPoints()
+    {
+        score += 50 * round;
     }
 
     public void NextRound()
     {
         round++;
+        roundTextbox.text = "Round: " + round.ToString();
         activePlayer.gameObject.SetActive(true);
         RoundStart();
     }

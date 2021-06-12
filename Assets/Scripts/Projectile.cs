@@ -16,6 +16,17 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.gameObject.GetComponent<BracketEnemy>() != null)
+        {
+            if (collision.collider.gameObject.GetComponent<BracketEnemy>().isShieldOn)
+            {
+
+            }
+        }
+        else
+        {
+            Destroy(collision.collider.gameObject);
+        }
         Destroy(gameObject);
     }
 
