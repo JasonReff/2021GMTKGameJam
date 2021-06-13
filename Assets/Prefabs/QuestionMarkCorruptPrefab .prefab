@@ -129,6 +129,24 @@ MonoBehaviour:
   AsteriskCorruptPrefab: {fileID: 0}
   BracketCorruptPrefab: {fileID: 0}
   projectilePrefab: {fileID: 0}
+  anim: {fileID: 0}
+  audioSource: {fileID: 0}
+  shootSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  Glitch: {fileID: 0}
+  readyToFire: 1
+  fireDelay: 2
+  OProjectile: {fileID: 7142133735434815157, guid: f1d68a672df028d40b22159bca1dec87, type: 3}
+  OFireSound: {fileID: 0}
+  ThreeProjectile: {fileID: 3945201064890057165, guid: e51163cb2648ba74dbd419a30c5c22cf, type: 3}
+  ThreeFireSound: {fileID: 0}
+  AmpersandProjectile: {fileID: 7253269389232660874, guid: 67b45b4cd34b0b849adb42bf1f08550d, type: 3}
+  AmpersandFireSound: {fileID: 0}
+  AsteriskProjectile: {fileID: 3519941877437886620, guid: 818f223f862b8ee4b8101bd452f7dbd0, type: 3}
+  AsteriskFireSound: {fileID: 0}
+  BracketFireSound: {fileID: 0}
+  Shield: {fileID: 0}
+  isShieldOn: 0
 --- !u!61 &630399074307248394
 BoxCollider2D:
   m_ObjectHideFlags: 0
