@@ -14,8 +14,7 @@ public class QuestionMarkCorrupt : PlayerCharacter
     public GameObject AsteriskProjectile;
     public AudioClip AsteriskFireSound;
     public AudioClip BracketFireSound;
-    public GameObject Shield;
-    public bool isShieldOn;
+    public GameObject BracketProjectile;
 
     public override void Start()
     {
@@ -62,9 +61,9 @@ public class QuestionMarkCorrupt : PlayerCharacter
         audioSource.clip = ThreeFireSound;
         audioSource.Play();
         Vector2 newDirection = reticle.characterToReticle / 10;
-        GameObject projectile1 = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
-        GameObject projectile2 = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection + new Vector3(newDirection.y, -newDirection.x), Quaternion.identity);
-        GameObject projectile3 = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection + new Vector3(-newDirection.y, newDirection.x), Quaternion.identity);
+        GameObject projectile1 = Instantiate(ThreeProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
+        GameObject projectile2 = Instantiate(ThreeProjectile, gameObject.transform.position + (Vector3)newDirection + new Vector3(newDirection.y, -newDirection.x), Quaternion.identity);
+        GameObject projectile3 = Instantiate(ThreeProjectile, gameObject.transform.position + (Vector3)newDirection + new Vector3(-newDirection.y, newDirection.x), Quaternion.identity);
         Vector2 projectile2Direction = newDirection + new Vector2(newDirection.y, -newDirection.x);
         Vector2 projectile3Direction = newDirection + new Vector2(-newDirection.y, newDirection.x);
         projectile1.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile1.GetComponent<Projectile>().projectileForce);
@@ -76,7 +75,9 @@ public class QuestionMarkCorrupt : PlayerCharacter
 
     void BracketFire()
     {
-
+        Vector2 newDirection = reticle.characterToReticle / 10;
+        GameObject projectile = Instantiate(BracketProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
+        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
     }
 
     void AmpersandFire()

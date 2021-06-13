@@ -9,10 +9,6 @@ public class BracketCorrupted : PlayerCharacter
     {
         
     }
-
-    public bool isShieldOn;
-    public GameObject shield;
-    public float boostForce;
     public override void PlayerCollision(Collision2D collision)
     {
         Glitch.SetActive(true);
@@ -28,46 +24,11 @@ public class BracketCorrupted : PlayerCharacter
         {
             audioSource.clip = shootSound;
             audioSource.Play();
-            StartCoroutine(ShieldAndBoost());
+            Vector2 newDirection = reticle.characterToReticle / 10;
+            GameObject projectile = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
+            projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
             readyToFire = false;
             StartCoroutine(FireRecharge());
         }
-    }
-
-    public IEnumerator ShieldAndBoost()
-    {
-        TurnShieldOn();
-        yield return new WaitForSeconds(0.3f);
-        Boost();
-        yield return new WaitForSeconds(0.5f);
-        Decelerate();
-        yield return new WaitForSeconds(0.5f);
-        TurnShieldOff();
-    }
-
-    void TurnShieldOn()
-    {
-        isShieldOn = true;
-        shield.SetActive(true);
-    }
-
-    void Decelerate()
-    {
-        Vector2 velocity = gameObject.GetComponent<Rigidbody2D>().velocity;
-        Vector2 decelerationForce = -velocity * boostForce * 0.5f;
-        gameObject.GetComponent<Rigidbody2D>().AddForce(decelerationForce);
-    }
-
-    void TurnShieldOff()
-    {
-        isShieldOn = false;
-        shield.SetActive(false);
-    }
-
-    void Boost()
-    {
-        Vector2 boostDirection = -reticle.characterToReticle;
-        gameObject.GetComponent<Rigidbody2D>().AddForce(boostDirection * boostForce);
-
     }
 }
