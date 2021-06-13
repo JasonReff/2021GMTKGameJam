@@ -131,7 +131,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3945201064890057165, guid: e51163cb2648ba74dbd419a30c5c22cf, type: 3}
   anim: {fileID: 0}
   audioSource: {fileID: 0}
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 9f79d759e08b9b64db080bd318582c0f, type: 3}
   deathSound: {fileID: 0}
   Glitch: {fileID: 0}
   readyToFire: 1
