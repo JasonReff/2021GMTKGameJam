@@ -26,7 +26,12 @@ public class PlayerCharacter : MonoBehaviour
     {
         transform.position = new Vector2(0, 0);
     }
-    
+
+    public virtual void Awake()
+    {
+    }
+
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerCollision(collision);

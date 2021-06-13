@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6200722573196995385}
   - component: {fileID: 8060648527625591033}
   - component: {fileID: 630399074307248394}
+  - component: {fileID: 7895144795064385215}
   m_Layer: 6
   m_Name: 'QuestionMarkCorruptPrefab '
   m_TagString: Untagged
@@ -129,7 +130,7 @@ MonoBehaviour:
   AsteriskCorruptPrefab: {fileID: 0}
   BracketCorruptPrefab: {fileID: 0}
   projectilePrefab: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7895144795064385215}
   audioSource: {fileID: 0}
   shootSound: {fileID: 0}
   deathSound: {fileID: 0}
@@ -172,3 +173,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.091038786, y: 0.16029379}
   m_EdgeRadius: 0
+--- !u!95 &7895144795064385215
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200722573196995384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71c1366015bec89438af4e80f5e8bb60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
