@@ -82,6 +82,7 @@ public class PlayerCharacter : MonoBehaviour
             corruptPlayer.GetComponent<PlayerCharacter>().Glitch = gameObject;
             GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = corruptPlayer.GetComponent<PlayerCharacter>();
             GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().enemiesKilled++;
+            GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().score += 10;
         }
 
         gameObject.SetActive(false);
