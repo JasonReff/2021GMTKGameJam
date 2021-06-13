@@ -90,7 +90,7 @@ public class PlayerCharacter : MonoBehaviour
 
     bool IsEnemyDamage(Collision2D collision)
     {
-        if (collision.collider.GetComponent<Projectile>() != null)
+        if (collision.collider.GetComponent<Projectile>() != null && invincible == false)
         {
             return true;
         }
@@ -143,8 +143,23 @@ public class PlayerCharacter : MonoBehaviour
         {
             time += 0.1f;
             yield return new WaitForSeconds(0.1f);
+            if (time == 1.0f)
+            {
+                StartCoroutine(LifespanAnimation());
+            }
         }
         Uncorrupt();
+    }
+
+    public virtual IEnumerator LifespanAnimation()
+    {
+        anim.SetBool("hit", true);
+        yield return new WaitForSeconds(0.2f);
+        anim.SetBool("hit", false);
+        yield return new WaitForSeconds(0.2f);
+        anim.SetBool("hit", true);
+        yield return new WaitForSeconds(0.2f);
+        anim.SetBool("hit", false);
     }
 
     public virtual void Uncorrupt()
