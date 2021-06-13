@@ -132,7 +132,10 @@ MonoBehaviour:
   anim: {fileID: 0}
   audioSource: {fileID: 0}
   shootSound: {fileID: 8300000, guid: 70748a9a5514bf945a8e9e0ffb51172d, type: 3}
+  deathSound: {fileID: 0}
   Glitch: {fileID: 0}
+  readyToFire: 1
+  fireDelay: 0.5
 --- !u!61 &6041722617201326692
 BoxCollider2D:
   m_ObjectHideFlags: 0

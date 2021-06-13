@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -67,10 +66,10 @@ public class Enemy : MonoBehaviour
         switch (leftOrRight)
         {
             case 1:
-                perpendicular = direction.Perpendicular1();
+                perpendicular = new Vector2 (direction.y, -direction.x);
                 break;
             case 2:
-                perpendicular = direction.Perpendicular2();
+                perpendicular = new Vector2(-direction.y, direction.x);
                 break;
             case 3:
                 perpendicular = new Vector2(0, 0);
@@ -124,6 +123,7 @@ public class Enemy : MonoBehaviour
 
     public void EnemyDeath()
     {
+        GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().enemiesKilled++;
         Invoke("Destroy", 1.0f);
         anim.SetBool("dead", true);
     }

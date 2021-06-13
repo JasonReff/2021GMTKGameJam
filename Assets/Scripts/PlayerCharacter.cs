@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -82,23 +80,7 @@ public class PlayerCharacter : MonoBehaviour
 
     bool IsEnemyDamage(Collision2D collision)
     {
-        if (collision.collider.GetComponent<BracketEnemy>() != null) 
-        {
-            if (collision.collider.GetComponent<BracketEnemy>().isShieldOn)
-            {
-                return true;
-            }
-            else return false;
-        }
-        else if (collision.collider.GetComponent<QuestionMarkEnemy>() != null)
-        {
-            if (collision.collider.GetComponent<QuestionMarkEnemy>().isShieldOn)
-            {
-                return true;
-            }
-            else return false;
-        }
-        else if (collision.collider.GetComponent<Projectile>() != null)
+        if (collision.collider.GetComponent<Projectile>() != null)
         {
             return true;
         }
