@@ -134,6 +134,9 @@ public class PlayerCharacter : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().size = new Vector2 (0, 0);
         Invoke("GameOver", 2f);
         anim.SetBool("dead", true);
+        GameObject eSpawn = GameObject.Find("EnemySpawner");
+        PlayerPrefs.SetInt("score", eSpawn.GetComponent<EnemySpawner>().score);
+        PlayerPrefs.SetInt("round", eSpawn.GetComponent<EnemySpawner>().round);
     }
 
     public void GameOver()

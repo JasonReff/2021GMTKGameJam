@@ -21,8 +21,6 @@ public class AmpersandCorrupt : PlayerCharacter
     {
         if (readyToFire)
         {
-            audioSource.clip = shootSound;
-            audioSource.Play();
             StartCoroutine(FireProjectiles());
             readyToFire = false;
             StartCoroutine(FireRecharge());
@@ -40,6 +38,8 @@ public class AmpersandCorrupt : PlayerCharacter
 
     void Fire1Projectile()
     {
+        audioSource.clip = shootSound;
+        audioSource.Play();
         Vector2 newDirection = reticle.characterToReticle;
         GameObject projectile = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
         projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile.GetComponent<Projectile>().projectileForce);
