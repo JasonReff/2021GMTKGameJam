@@ -29,6 +29,10 @@ public class QuestionMarkCorrupt : PlayerCharacter
     }
     public override void PlayerCollision(Collision2D collision)
     {
+        if (collision.collider.gameObject.GetComponent<Enemy>() != null)
+        {
+            collision.collider.gameObject.GetComponent<Enemy>().EnemyDeath();
+        }
         Uncorrupt();
     }
 
