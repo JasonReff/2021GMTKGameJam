@@ -46,8 +46,8 @@ public class AsteriskCorrupted : PlayerCharacter
             projectile3.GetComponent<Rigidbody2D>().AddForce(projectile3Direction * 10 * projectile3.GetComponent<Projectile>().projectileForce);
             projectile4.GetComponent<Rigidbody2D>().AddForce(projectile4Direction * 10 * projectile4.GetComponent<Projectile>().projectileForce);
             projectile5.GetComponent<Rigidbody2D>().AddForce(projectile5Direction * 10 * projectile5.GetComponent<Projectile>().projectileForce);
-            projectile6.GetComponent<Rigidbody2D>().AddForce(projectile4Direction * 10 * projectile6.GetComponent<Projectile>().projectileForce);
-            projectile7.GetComponent<Rigidbody2D>().AddForce(projectile5Direction * 10 * projectile7.GetComponent<Projectile>().projectileForce);
+            projectile6.GetComponent<Rigidbody2D>().AddForce(projectile6Direction * 10 * projectile6.GetComponent<Projectile>().projectileForce);
+            projectile7.GetComponent<Rigidbody2D>().AddForce(projectile7Direction * 10 * projectile7.GetComponent<Projectile>().projectileForce);
             projectile8.GetComponent<Rigidbody2D>().AddForce(-newDirection * 10 * projectile1.GetComponent<Projectile>().projectileForce);
             readyToFire = false;
             StartCoroutine(FireRecharge());
