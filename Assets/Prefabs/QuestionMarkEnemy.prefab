@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2810292978314846292}
   - component: {fileID: -3551935531862445633}
   - component: {fileID: 7097177831427950723}
+  - component: {fileID: 2733028158835738987}
   m_Layer: 7
   m_Name: QuestionMarkEnemy
   m_TagString: Untagged
@@ -109,6 +110,8 @@ MonoBehaviour:
   player: {fileID: 0}
   hp: 0
   enemyProjectile: {fileID: 1927049429077323858, guid: 8c03245c01e988747815146ad5a4f8a0, type: 3}
+  Glitch: {fileID: 0}
+  anim: {fileID: 2733028158835738987}
   shield: {fileID: 7760507069045959987}
   boostForce: 1
   isShieldOn: 0
@@ -163,6 +166,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &2733028158835738987
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810292978314846295}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce7aa674eb96a8347b799b203486828c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7760507069045959987
 GameObject:
   m_ObjectHideFlags: 0
