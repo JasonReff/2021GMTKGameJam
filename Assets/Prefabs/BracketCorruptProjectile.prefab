@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BracketCorruptProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 4782914116160203379, guid: 5124633c6dc92084f9bb36a2ff61baf7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4782914116160203382, guid: 5124633c6dc92084f9bb36a2ff61baf7, type: 3}
       propertyPath: m_Color.b
       value: 0.7204695

@@ -155,8 +155,10 @@ public class EnemySpawner : MonoBehaviour
     {
         StopCoroutine(DeductPoints());
         StopCoroutine(RemainingEnemies());
+        enemiesKilled = 0;
         EndOfRoundPoints();
         activePlayer.gameObject.SetActive(false);
+        roundScreen.gameObject.SetActive(true);
     }
 
     void EndOfRoundPoints()
@@ -169,6 +171,7 @@ public class EnemySpawner : MonoBehaviour
         round++;
         roundTextbox.text = "Round: " + round.ToString();
         activePlayer.gameObject.SetActive(true);
+        roundScreen.gameObject.SetActive(false);
         RoundStart();
     }
 

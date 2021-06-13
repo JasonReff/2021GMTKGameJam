@@ -34,7 +34,7 @@ public class ThreeCorrupt : PlayerCharacter
             projectile2.GetComponent<Rigidbody2D>().AddForce(projectile2Direction * 10 * projectile2.GetComponent<Projectile>().projectileForce);
             projectile3.GetComponent<Rigidbody2D>().AddForce(projectile3Direction * 10 * projectile3.GetComponent<Projectile>().projectileForce);
             readyToFire = false;
-            FireRecharge();
+            StartCoroutine(FireRecharge());
         }
     }
 }

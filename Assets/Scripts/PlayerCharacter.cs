@@ -73,6 +73,7 @@ public class PlayerCharacter : MonoBehaviour
             corruptPlayer.GetComponent<PlayerCharacter>().audioSource = audioSource;
             corruptPlayer.GetComponent<PlayerCharacter>().Glitch = gameObject;
             GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = corruptPlayer.GetComponent<PlayerCharacter>();
+            GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().enemiesKilled++;
         }
 
         gameObject.SetActive(false);
