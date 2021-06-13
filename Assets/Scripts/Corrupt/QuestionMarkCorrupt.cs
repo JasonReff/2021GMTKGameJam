@@ -70,7 +70,7 @@ public class QuestionMarkCorrupt : PlayerCharacter
         projectile2.GetComponent<Rigidbody2D>().AddForce(projectile2Direction * 10 * projectile2.GetComponent<Projectile>().projectileForce);
         projectile3.GetComponent<Rigidbody2D>().AddForce(projectile3Direction * 10 * projectile3.GetComponent<Projectile>().projectileForce);
         readyToFire = false;
-        FireRecharge();
+        StartCoroutine(FireRecharge());
     }
 
     void BracketFire()
@@ -78,12 +78,12 @@ public class QuestionMarkCorrupt : PlayerCharacter
         Vector2 newDirection = reticle.characterToReticle / 10;
         GameObject projectile = Instantiate(BracketProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
         projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
+        readyToFire = false;
+        StartCoroutine(FireRecharge());
     }
 
     void AmpersandFire()
     {
-        audioSource.clip = AmpersandFireSound;
-        audioSource.Play();
         StartCoroutine(FireProjectiles());
         readyToFire = false;
         StartCoroutine(FireRecharge());
@@ -93,6 +93,7 @@ public class QuestionMarkCorrupt : PlayerCharacter
     {
         for (int i = 0; i <= 2; i++)
         {
+            
             yield return new WaitForSeconds(.2f);
             Fire1Projectile();
         }
@@ -100,6 +101,8 @@ public class QuestionMarkCorrupt : PlayerCharacter
 
     void Fire1Projectile()
     {
+        audioSource.clip = AmpersandFireSound;
+        audioSource.Play(); 
         Vector2 newDirection = reticle.characterToReticle;
         GameObject projectile = Instantiate(AmpersandProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
         projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile.GetComponent<Projectile>().projectileForce);

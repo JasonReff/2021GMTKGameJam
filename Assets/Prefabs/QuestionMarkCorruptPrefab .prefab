@@ -145,8 +145,7 @@ MonoBehaviour:
   AsteriskProjectile: {fileID: 3519941877437886620, guid: 818f223f862b8ee4b8101bd452f7dbd0, type: 3}
   AsteriskFireSound: {fileID: 0}
   BracketFireSound: {fileID: 0}
-  Shield: {fileID: 0}
-  isShieldOn: 0
+  BracketProjectile: {fileID: 107406836944948282, guid: b417fc47557136448bf00fcc3d9ae045, type: 3}
 --- !u!61 &630399074307248394
 BoxCollider2D:
   m_ObjectHideFlags: 0
