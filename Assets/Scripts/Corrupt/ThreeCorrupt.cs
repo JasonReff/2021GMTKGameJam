@@ -14,12 +14,17 @@ public class ThreeCorrupt : PlayerCharacter
     public void StopAnimation()
     {
         anim.SetBool("Corrupt", false);
+        StartCoroutine(LifespanTick());
     }
     public override void PlayerCollision(Collision2D collision)
     {
+        Uncorrupt();
+    }
+
+    public override void Uncorrupt()
+    {
         Glitch.SetActive(true);
         Glitch.transform.position = gameObject.transform.position;
-        GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = Glitch.GetComponent<PlayerCharacter>();
         Destroy(gameObject);
         //add uncorrupt animation
     }

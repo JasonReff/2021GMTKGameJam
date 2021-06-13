@@ -137,6 +137,7 @@ MonoBehaviour:
   Glitch: {fileID: 0}
   readyToFire: 1
   fireDelay: 2
+  corruptLifespan: 7
   OProjectile: {fileID: 7142133735434815157, guid: f1d68a672df028d40b22159bca1dec87, type: 3}
   OFireSound: {fileID: 0}
   ThreeProjectile: {fileID: 3945201064890057165, guid: e51163cb2648ba74dbd419a30c5c22cf, type: 3}

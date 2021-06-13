@@ -8,6 +8,7 @@ public class AmpersandCorrupt : PlayerCharacter
     {
         anim.SetBool("Corrupt", true);
         Invoke("StopAnimation", .8f);
+        StartCoroutine(LifespanTick());
     }
 
     public void StopAnimation()
@@ -16,6 +17,11 @@ public class AmpersandCorrupt : PlayerCharacter
     }
 
     public override void PlayerCollision(Collision2D collision)
+    {
+        Uncorrupt();
+    }
+
+    public override void Uncorrupt()
     {
         Glitch.SetActive(true);
         Glitch.transform.position = gameObject.transform.position;
