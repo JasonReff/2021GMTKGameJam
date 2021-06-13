@@ -154,17 +154,17 @@ public class PlayerCharacter : MonoBehaviour
 
     public IEnumerator IFrames()
     {
-        StartCoroutine(IFrameAnimation());
         invincible = true;
+        StartCoroutine(IFrameAnimation());
         yield return new WaitForSeconds(invincibilityTime);
         invincible = false;
     }
 
     public IEnumerator IFrameAnimation()
     {
-        yield return new WaitForSeconds(invincibilityTime / 3);
-        yield return new WaitForSeconds(invincibilityTime / 3);
-        yield return new WaitForSeconds(invincibilityTime / 3);
+        anim.SetBool("hit", true);
+        yield return new WaitForSeconds(invincibilityTime);
+        anim.SetBool("hit", false);
     }
 
     public void PlayerDeath()
