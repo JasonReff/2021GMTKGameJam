@@ -7,9 +7,14 @@ public class OCorrupt : PlayerCharacter
 
     public override void Start()
     {
-
+        StartCoroutine(LifespanTick());
     }
     public override void PlayerCollision(Collision2D collision)
+    {
+        Uncorrupt();
+    }
+
+    public override void Uncorrupt()
     {
         Glitch.SetActive(true);
         Glitch.transform.position = gameObject.transform.position;

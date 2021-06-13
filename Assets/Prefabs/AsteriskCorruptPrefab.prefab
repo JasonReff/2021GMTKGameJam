@@ -136,6 +136,7 @@ MonoBehaviour:
   Glitch: {fileID: 0}
   readyToFire: 1
   fireDelay: 3
+  corruptLifespan: 5
 --- !u!61 &3508476526308719177
 BoxCollider2D:
   m_ObjectHideFlags: 0

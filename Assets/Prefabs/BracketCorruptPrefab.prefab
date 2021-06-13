@@ -219,7 +219,8 @@ MonoBehaviour:
   deathSound: {fileID: 0}
   Glitch: {fileID: 0}
   readyToFire: 1
-  fireDelay: 0
+  fireDelay: 1
+  corruptLifespan: 10
 --- !u!61 &5070819977440907492
 BoxCollider2D:
   m_ObjectHideFlags: 0

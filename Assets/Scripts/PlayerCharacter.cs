@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,7 @@ public class PlayerCharacter : MonoBehaviour
     public GameObject Glitch;
     public bool readyToFire = true;
     public float fireDelay;
+    public float corruptLifespan;
     Vector2 movement;
     public virtual void Start()
     {
@@ -125,6 +127,22 @@ public class PlayerCharacter : MonoBehaviour
     {
         yield return new WaitForSeconds(fireDelay);
         readyToFire = true;
+    }
+
+    public virtual IEnumerator LifespanTick()
+    {
+        float time = 0;
+        while (time < corruptLifespan) 
+        {
+            time += 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        Uncorrupt();
+    }
+
+    public virtual void Uncorrupt()
+    {
+
     }
 
     public void PlayerDeath()
