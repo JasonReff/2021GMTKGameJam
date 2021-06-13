@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AmpersandCorrupt : PlayerCharacter
-{
-
+{ 
     public override void Start()
     {
+        anim.SetBool("Corrupt", true);
+        Invoke("StopAnimation", .8f);
         StartCoroutine(LifespanTick());
     }
+
+    public void StopAnimation()
+    {
+        anim.SetBool("Corrupt", false);
+    }
+
     public override void PlayerCollision(Collision2D collision)
     {
         Uncorrupt();

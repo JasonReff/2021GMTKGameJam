@@ -18,6 +18,13 @@ public class QuestionMarkCorrupt : PlayerCharacter
 
     public override void Start()
     {
+        anim.SetBool("Corrupt", true);
+        Invoke("StopAnimation", .8f);
+    }
+
+    public void StopAnimation()
+    {
+        anim.SetBool("Corrupt", false);
         StartCoroutine(LifespanTick());
     }
     public override void PlayerCollision(Collision2D collision)

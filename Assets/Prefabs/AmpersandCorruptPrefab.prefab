@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1601201511918967751}
   - component: {fileID: 7633334625654910156}
   - component: {fileID: 6901044807590529806}
+  - component: {fileID: 7943136045050609828}
   m_Layer: 6
   m_Name: AmpersandCorruptPrefab
   m_TagString: Untagged
@@ -129,7 +130,7 @@ MonoBehaviour:
   AsteriskCorruptPrefab: {fileID: 0}
   BracketCorruptPrefab: {fileID: 0}
   projectilePrefab: {fileID: 7253269389232660874, guid: 67b45b4cd34b0b849adb42bf1f08550d, type: 3}
-  anim: {fileID: 0}
+  anim: {fileID: 7943136045050609828}
   audioSource: {fileID: 0}
   shootSound: {fileID: 8300000, guid: bb73d8cc45e523b4493a23daf4a7f23b, type: 3}
   deathSound: {fileID: 0}
@@ -163,3 +164,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.116981566, y: 0.16135348}
   m_EdgeRadius: 0
+--- !u!95 &7943136045050609828
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8753847634081974649}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0e52f56237b66a41943ed8e20c7cc88, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

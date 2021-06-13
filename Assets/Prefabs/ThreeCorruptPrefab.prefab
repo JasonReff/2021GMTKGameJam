@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1826770649916224519}
   - component: {fileID: 1826770649916224518}
   - component: {fileID: -1433171619970568241}
+  - component: {fileID: 2406892848465084304}
   m_Layer: 6
   m_Name: ThreeCorruptPrefab
   m_TagString: Untagged
@@ -129,7 +130,7 @@ MonoBehaviour:
   AsteriskCorruptPrefab: {fileID: 0}
   BracketCorruptPrefab: {fileID: 0}
   projectilePrefab: {fileID: 3945201064890057165, guid: e51163cb2648ba74dbd419a30c5c22cf, type: 3}
-  anim: {fileID: 0}
+  anim: {fileID: 2406892848465084304}
   audioSource: {fileID: 0}
   shootSound: {fileID: 8300000, guid: 9f79d759e08b9b64db080bd318582c0f, type: 3}
   deathSound: {fileID: 0}
@@ -163,3 +164,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.114123814, y: 0.1529066}
   m_EdgeRadius: 0
+--- !u!95 &2406892848465084304
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826770649916224513}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb0d42b15fe9d014a865677220c1136a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

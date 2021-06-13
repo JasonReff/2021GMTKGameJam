@@ -7,6 +7,13 @@ public class AsteriskCorrupted : PlayerCharacter
 
     public override void Start()
     {
+        anim.SetBool("Corrupt", true);
+        Invoke("StopAnimation", .8f);
+    }
+
+    public void StopAnimation()
+    {
+        anim.SetBool("Corrupt", false);
         StartCoroutine(LifespanTick());
     }
 
