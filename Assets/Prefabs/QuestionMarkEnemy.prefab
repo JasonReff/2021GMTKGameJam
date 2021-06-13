@@ -112,13 +112,11 @@ MonoBehaviour:
   enemyProjectile: {fileID: 1927049429077323858, guid: 8c03245c01e988747815146ad5a4f8a0, type: 3}
   Glitch: {fileID: 0}
   anim: {fileID: 2733028158835738987}
-  shield: {fileID: 7760507069045959987}
-  boostForce: 1
-  isShieldOn: 0
   OProjectile: {fileID: 4740193028943283921, guid: 8f03f6ced663bbe428a8d89402dc1379, type: 3}
   ThreeProjectile: {fileID: 8697085910663280614, guid: deb408760ab11c04ea1f7f9b785d349a, type: 3}
   AsteriskProjectile: {fileID: 3464871310035789833, guid: 3d55283812adafd47b9a68c493c52a47, type: 3}
   AmpersandProjectile: {fileID: 6098041795347662542, guid: 79609dfa7aa975d46b9f2a04cf231a55, type: 3}
+  BracketProjectile: {fileID: 4782914116160203379, guid: 5124633c6dc92084f9bb36a2ff61baf7, type: 3}
 --- !u!61 &-3551935531862445633
 BoxCollider2D:
   m_ObjectHideFlags: 0

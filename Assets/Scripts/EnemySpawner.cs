@@ -42,6 +42,7 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         enemiesRemainingTextbox.text = "Enemies Remaining: " + (maximumEnemies - enemiesKilled).ToString();
+        StartCoroutine(RemainingEnemies());
     }
 
     IEnumerator DeductPoints()
