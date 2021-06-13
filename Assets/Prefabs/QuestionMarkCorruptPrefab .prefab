@@ -138,15 +138,17 @@ MonoBehaviour:
   readyToFire: 1
   fireDelay: 2
   corruptLifespan: 7
+  invincibilityTime: 0
+  invincible: 0
   OProjectile: {fileID: 7142133735434815157, guid: f1d68a672df028d40b22159bca1dec87, type: 3}
-  OFireSound: {fileID: 0}
+  OFireSound: {fileID: 8300000, guid: 70748a9a5514bf945a8e9e0ffb51172d, type: 3}
   ThreeProjectile: {fileID: 3945201064890057165, guid: e51163cb2648ba74dbd419a30c5c22cf, type: 3}
-  ThreeFireSound: {fileID: 0}
+  ThreeFireSound: {fileID: 8300000, guid: 9f79d759e08b9b64db080bd318582c0f, type: 3}
   AmpersandProjectile: {fileID: 7253269389232660874, guid: 67b45b4cd34b0b849adb42bf1f08550d, type: 3}
-  AmpersandFireSound: {fileID: 0}
+  AmpersandFireSound: {fileID: 8300000, guid: bb73d8cc45e523b4493a23daf4a7f23b, type: 3}
   AsteriskProjectile: {fileID: 3519941877437886620, guid: 818f223f862b8ee4b8101bd452f7dbd0, type: 3}
-  AsteriskFireSound: {fileID: 0}
-  BracketFireSound: {fileID: 0}
+  AsteriskFireSound: {fileID: 8300000, guid: 45ac5533c9f2cf64c87b9a40a7525288, type: 3}
+  BracketFireSound: {fileID: 8300000, guid: 01fd566401477da4d81a42c8f31b507e, type: 3}
   BracketProjectile: {fileID: 107406836944948282, guid: b417fc47557136448bf00fcc3d9ae045, type: 3}
 --- !u!61 &630399074307248394
 BoxCollider2D:
