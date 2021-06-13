@@ -110,7 +110,7 @@ MonoBehaviour:
   hp: 0
   enemyProjectile: {fileID: 8697085910663280614, guid: deb408760ab11c04ea1f7f9b785d349a, type: 3}
   Glitch: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 5148585444223962983}
 --- !u!50 &-3480657994069815583
 Rigidbody2D:
   serializedVersion: 4

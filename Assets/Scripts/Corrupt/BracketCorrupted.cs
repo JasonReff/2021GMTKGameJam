@@ -17,6 +17,7 @@ public class BracketCorrupted : PlayerCharacter
     {
         Glitch.SetActive(true);
         Glitch.transform.position = gameObject.transform.position;
+        GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = Glitch.GetComponent<PlayerCharacter>();
         Destroy(gameObject);
         //add uncorrupt animation
     }
