@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BracketCorrupted : PlayerCharacter
@@ -25,7 +27,9 @@ public class BracketCorrupted : PlayerCharacter
             audioSource.clip = shootSound;
             audioSource.Play();
             Vector2 newDirection = reticle.characterToReticle / 10;
+            float rotation = Vector2.Angle(newDirection, new Vector2(-1, 0));
             GameObject projectile = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
+            projectile.transform.Rotate(0, 0, rotation);
             projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
             readyToFire = false;
             StartCoroutine(FireRecharge());
