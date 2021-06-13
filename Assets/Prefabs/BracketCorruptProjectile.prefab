@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1015828723179211935, guid: 5124633c6dc92084f9bb36a2ff61baf7, type: 3}
+      propertyPath: projectileForce
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 4782914116160203379, guid: 5124633c6dc92084f9bb36a2ff61baf7, type: 3}
       propertyPath: m_Name
       value: BracketCorruptProjectile

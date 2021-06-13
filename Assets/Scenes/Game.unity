@@ -806,6 +806,7 @@ MonoBehaviour:
   score: 0
   scoreTextbox: {fileID: 1954698260}
   roundScreen: {fileID: 607307805}
+  roundFinishedTextbox: {fileID: 0}
   activePlayer: {fileID: 1494129700}
   OEnemyPrefab: {fileID: 8341006678280993083, guid: b44cb1a371c95ac449e652f289edd713, type: 3}
   QuestionMarkEnemyPrefab: {fileID: 2810292978314846295, guid: d60e2918f0f4e6e438422e2c1a1159e4, type: 3}
@@ -1579,7 +1580,7 @@ GameObject:
   - component: {fileID: 2009441276}
   - component: {fileID: 2009441275}
   m_Layer: 0
-  m_Name: Text
+  m_Name: RoundFinishedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1637,7 +1638,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: RoundComplete
 --- !u!222 &2009441276
 CanvasRenderer:
   m_ObjectHideFlags: 0

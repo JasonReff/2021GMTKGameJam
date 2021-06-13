@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     public int score;
     public Text scoreTextbox;
     public GameObject roundScreen;
+    public Text roundFinishedTextbox;
     public PlayerCharacter activePlayer;
     public Queue<int> enemyQueue;
     public GameObject OEnemyPrefab;
