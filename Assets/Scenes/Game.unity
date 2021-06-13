@@ -1125,6 +1125,8 @@ MonoBehaviour:
   shootSound: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 0cf45749d239af64b9771f7941c5deca, type: 3}
   Glitch: {fileID: 0}
+  readyToFire: 1
+  fireDelay: 0
 --- !u!50 &1494129701
 Rigidbody2D:
   serializedVersion: 4
