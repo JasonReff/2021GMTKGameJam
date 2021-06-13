@@ -28,6 +28,7 @@ public class AsteriskCorrupted : PlayerCharacter
         Glitch.transform.position = gameObject.transform.position;
         GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = Glitch.GetComponent<PlayerCharacter>();
         Destroy(gameObject);
+        Glitch.GetComponent<PlayerCharacter>().Uncorrupt();
         //add uncorrupt animation
     }
 

@@ -1213,6 +1213,8 @@ MonoBehaviour:
   readyToFire: 1
   fireDelay: 0
   corruptLifespan: 0
+  invincibilityTime: 1
+  invincible: 0
 --- !u!50 &1494129701
 Rigidbody2D:
   serializedVersion: 4
