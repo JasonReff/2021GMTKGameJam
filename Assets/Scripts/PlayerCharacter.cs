@@ -42,6 +42,10 @@ public class PlayerCharacter : MonoBehaviour
 
     public virtual void PlayerCollision(Collision2D collision)
     {
+        if (invincible)
+        {
+            return;
+        }
         if (IsEnemyDamage(collision))
         {
             PlayerDeath();
@@ -89,7 +93,7 @@ public class PlayerCharacter : MonoBehaviour
 
     bool IsEnemyDamage(Collision2D collision)
     {
-        if (collision.collider.GetComponent<Projectile>() != null && invincible == false)
+        if (collision.collider.GetComponent<Projectile>() != null)
         {
             return true;
         }
@@ -142,7 +146,7 @@ public class PlayerCharacter : MonoBehaviour
         {
             time += 0.1f;
             yield return new WaitForSeconds(0.1f);
-            if (time == 1.0f)
+            if (time == 2.0f)
             {
                 StartCoroutine(LifespanAnimation());
             }
