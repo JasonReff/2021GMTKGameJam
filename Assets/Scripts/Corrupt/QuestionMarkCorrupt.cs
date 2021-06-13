@@ -62,9 +62,9 @@ public class QuestionMarkCorrupt : PlayerCharacter
     {
         audioSource.clip = OFireSound;
         audioSource.Play();
-        Vector2 newDirection = reticle.characterToReticle / 10;
+        Vector2 newDirection = reticle.characterToReticle.normalized;
         GameObject projectile = Instantiate(OProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
+        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile.GetComponent<Projectile>().projectileForce);
         readyToFire = false;
         StartCoroutine(FireRecharge());
     }
@@ -73,24 +73,24 @@ public class QuestionMarkCorrupt : PlayerCharacter
     {
         audioSource.clip = ThreeFireSound;
         audioSource.Play();
-        Vector2 newDirection = reticle.characterToReticle / 10;
+        Vector2 newDirection = reticle.characterToReticle.normalized;
         GameObject projectile1 = Instantiate(ThreeProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
         GameObject projectile2 = Instantiate(ThreeProjectile, gameObject.transform.position + (Vector3)newDirection + new Vector3(newDirection.y, -newDirection.x), Quaternion.identity);
         GameObject projectile3 = Instantiate(ThreeProjectile, gameObject.transform.position + (Vector3)newDirection + new Vector3(-newDirection.y, newDirection.x), Quaternion.identity);
         Vector2 projectile2Direction = newDirection + new Vector2(newDirection.y, -newDirection.x);
         Vector2 projectile3Direction = newDirection + new Vector2(-newDirection.y, newDirection.x);
-        projectile1.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile1.GetComponent<Projectile>().projectileForce);
-        projectile2.GetComponent<Rigidbody2D>().AddForce(projectile2Direction * 10 * projectile2.GetComponent<Projectile>().projectileForce);
-        projectile3.GetComponent<Rigidbody2D>().AddForce(projectile3Direction * 10 * projectile3.GetComponent<Projectile>().projectileForce);
+        projectile1.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile1.GetComponent<Projectile>().projectileForce);
+        projectile2.GetComponent<Rigidbody2D>().AddForce(projectile2Direction * projectile2.GetComponent<Projectile>().projectileForce);
+        projectile3.GetComponent<Rigidbody2D>().AddForce(projectile3Direction * projectile3.GetComponent<Projectile>().projectileForce);
         readyToFire = false;
         StartCoroutine(FireRecharge());
     }
 
     void BracketFire()
     {
-        Vector2 newDirection = reticle.characterToReticle / 10;
+        Vector2 newDirection = reticle.characterToReticle.normalized;
         GameObject projectile = Instantiate(BracketProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
+        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile.GetComponent<Projectile>().projectileForce);
         readyToFire = false;
         StartCoroutine(FireRecharge());
     }
@@ -116,7 +116,7 @@ public class QuestionMarkCorrupt : PlayerCharacter
     {
         audioSource.clip = AmpersandFireSound;
         audioSource.Play(); 
-        Vector2 newDirection = reticle.characterToReticle;
+        Vector2 newDirection = reticle.characterToReticle.normalized;
         GameObject projectile = Instantiate(AmpersandProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
         projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile.GetComponent<Projectile>().projectileForce);
     }
@@ -125,7 +125,7 @@ public class QuestionMarkCorrupt : PlayerCharacter
     {
         audioSource.clip = AsteriskFireSound;
         audioSource.Play();
-        Vector2 newDirection = -reticle.characterToReticle / 10;
+        Vector2 newDirection = -reticle.characterToReticle.normalized;
         GameObject projectile1 = Instantiate(AsteriskProjectile, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
         GameObject projectile2 = Instantiate(AsteriskProjectile, gameObject.transform.position + (Vector3)newDirection + new Vector3(newDirection.y, -newDirection.x), Quaternion.identity);
         GameObject projectile3 = Instantiate(AsteriskProjectile, gameObject.transform.position + (Vector3)newDirection + new Vector3(-newDirection.y, newDirection.x), Quaternion.identity);
@@ -140,14 +140,14 @@ public class QuestionMarkCorrupt : PlayerCharacter
         Vector2 projectile5Direction = new Vector2(-newDirection.y, newDirection.x);
         Vector2 projectile6Direction = -newDirection + new Vector2(newDirection.y, -newDirection.x);
         Vector2 projectile7Direction = -newDirection + new Vector2(-newDirection.y, newDirection.x);
-        projectile1.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile1.GetComponent<Projectile>().projectileForce);
-        projectile2.GetComponent<Rigidbody2D>().AddForce(projectile2Direction * 10 * projectile2.GetComponent<Projectile>().projectileForce);
-        projectile3.GetComponent<Rigidbody2D>().AddForce(projectile3Direction * 10 * projectile3.GetComponent<Projectile>().projectileForce);
-        projectile4.GetComponent<Rigidbody2D>().AddForce(projectile4Direction * 10 * projectile4.GetComponent<Projectile>().projectileForce);
-        projectile5.GetComponent<Rigidbody2D>().AddForce(projectile5Direction * 10 * projectile5.GetComponent<Projectile>().projectileForce);
-        projectile6.GetComponent<Rigidbody2D>().AddForce(projectile6Direction * 10 * projectile6.GetComponent<Projectile>().projectileForce);
-        projectile7.GetComponent<Rigidbody2D>().AddForce(projectile7Direction * 10 * projectile7.GetComponent<Projectile>().projectileForce);
-        projectile8.GetComponent<Rigidbody2D>().AddForce(-newDirection * 10 * projectile1.GetComponent<Projectile>().projectileForce);
+        projectile1.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile1.GetComponent<Projectile>().projectileForce);
+        projectile2.GetComponent<Rigidbody2D>().AddForce(projectile2Direction * projectile2.GetComponent<Projectile>().projectileForce);
+        projectile3.GetComponent<Rigidbody2D>().AddForce(projectile3Direction * projectile3.GetComponent<Projectile>().projectileForce);
+        projectile4.GetComponent<Rigidbody2D>().AddForce(projectile4Direction * projectile4.GetComponent<Projectile>().projectileForce);
+        projectile5.GetComponent<Rigidbody2D>().AddForce(projectile5Direction * projectile5.GetComponent<Projectile>().projectileForce);
+        projectile6.GetComponent<Rigidbody2D>().AddForce(projectile6Direction * projectile6.GetComponent<Projectile>().projectileForce);
+        projectile7.GetComponent<Rigidbody2D>().AddForce(projectile7Direction * projectile7.GetComponent<Projectile>().projectileForce);
+        projectile8.GetComponent<Rigidbody2D>().AddForce(-newDirection * projectile1.GetComponent<Projectile>().projectileForce);
         readyToFire = false;
         StartCoroutine(FireRecharge());
     }

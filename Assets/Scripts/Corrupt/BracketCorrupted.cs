@@ -39,11 +39,11 @@ public class BracketCorrupted : PlayerCharacter
         {
             audioSource.clip = shootSound;
             audioSource.Play();
-            Vector2 newDirection = reticle.characterToReticle / 10;
+            Vector2 newDirection = reticle.characterToReticle.normalized;
             float rotation = Vector2.Angle(newDirection, new Vector2(-1, 0));
             GameObject projectile = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
             projectile.transform.Rotate(0, 0, rotation);
-            projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * 10 * projectile.GetComponent<Projectile>().projectileForce);
+            projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile.GetComponent<Projectile>().projectileForce);
             readyToFire = false;
             StartCoroutine(FireRecharge());
         }
