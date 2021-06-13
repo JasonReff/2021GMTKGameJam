@@ -20,9 +20,16 @@ public class Projectile : MonoBehaviour
             {
                 collision.collider.gameObject.GetComponent<Enemy>().EnemyDeath();
             }
-            else
+            else if (collision.collider.gameObject.GetComponent<PlayerCharacter>() != null)
             {
-                collision.collider.gameObject.GetComponent<PlayerCharacter>().PlayerDeath();
+                if (collision.collider.gameObject.GetComponent<PlayerCharacter>().invincible)
+                {
+                    
+                }
+                else 
+                {
+                    collision.collider.gameObject.GetComponent<PlayerCharacter>().PlayerDeath();
+                }
             }
         Destroy(gameObject);
     }

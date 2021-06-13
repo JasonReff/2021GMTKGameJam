@@ -23,6 +23,8 @@ public class PlayerCharacter : MonoBehaviour
     public bool readyToFire = true;
     public float fireDelay;
     public float corruptLifespan;
+    public float invincibilityTime;
+    public bool invincible;
     Vector2 movement;
     public virtual void Start()
     {
@@ -147,7 +149,22 @@ public class PlayerCharacter : MonoBehaviour
 
     public virtual void Uncorrupt()
     {
+        StartCoroutine(IFrames());
+    }
 
+    public IEnumerator IFrames()
+    {
+        StartCoroutine(IFrameAnimation());
+        invincible = true;
+        yield return new WaitForSeconds(invincibilityTime);
+        invincible = false;
+    }
+
+    public IEnumerator IFrameAnimation()
+    {
+        yield return new WaitForSeconds(invincibilityTime / 3);
+        yield return new WaitForSeconds(invincibilityTime / 3);
+        yield return new WaitForSeconds(invincibilityTime / 3);
     }
 
     public void PlayerDeath()
