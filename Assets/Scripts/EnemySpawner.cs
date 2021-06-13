@@ -160,7 +160,7 @@ public class EnemySpawner : MonoBehaviour
         EndOfRoundPoints();
         activePlayer.gameObject.SetActive(false);
         roundScreen.gameObject.SetActive(true);
-        roundFinishedTextbox.text = "Round " + round.ToString() + " Finished";
+        roundFinishedTextbox.text = "Firewall " + round.ToString() + " Breached";
     }
 
     void EndOfRoundPoints()
