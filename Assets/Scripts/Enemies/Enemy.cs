@@ -124,6 +124,7 @@ public class Enemy : MonoBehaviour
     public void EnemyDeath()
     {
         GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().enemiesKilled++;
+        GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().score += 20;
         gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0, 0);
         Invoke("Destroy", 1.0f);
         anim.SetBool("dead", true);
