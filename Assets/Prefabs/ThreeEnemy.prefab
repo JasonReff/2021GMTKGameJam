@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2404577367381593162}
   - component: {fileID: -3480657994069815583}
   - component: {fileID: -1761223744206855077}
+  - component: {fileID: 5148585444223962983}
   m_Layer: 7
   m_Name: ThreeEnemy
   m_TagString: Untagged
@@ -108,6 +109,8 @@ MonoBehaviour:
   player: {fileID: 0}
   hp: 0
   enemyProjectile: {fileID: 8697085910663280614, guid: deb408760ab11c04ea1f7f9b785d349a, type: 3}
+  Glitch: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!50 &-3480657994069815583
 Rigidbody2D:
   serializedVersion: 4
@@ -155,3 +158,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
+--- !u!95 &5148585444223962983
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4810321805805490631}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9238319236f42524d9c89641054d2624, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

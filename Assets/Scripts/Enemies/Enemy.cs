@@ -130,6 +130,6 @@ public class Enemy : MonoBehaviour
 
     public void Destroy()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }

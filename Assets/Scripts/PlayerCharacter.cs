@@ -90,6 +90,14 @@ public class PlayerCharacter : MonoBehaviour
             }
             else return false;
         }
+        else if (collision.collider.GetComponent<QuestionMarkEnemy>() != null)
+        {
+            if (collision.collider.GetComponent<QuestionMarkEnemy>().isShieldOn)
+            {
+                return true;
+            }
+            else return false;
+        }
         else if (collision.collider.GetComponent<Projectile>() != null)
         {
             return true;
