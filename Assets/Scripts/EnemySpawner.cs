@@ -80,7 +80,7 @@ public class EnemySpawner : MonoBehaviour
 
     void GenerateEnemyQueue()
     {
-        maximumEnemies = round * 10;
+        maximumEnemies = round * 3;
         for (int i = 0; i < maximumEnemies; i++)
         {
             int enemyID = UnityEngine.Random.Range(1, 7);
@@ -171,6 +171,13 @@ public class EnemySpawner : MonoBehaviour
         round++;
         roundTextbox.text = "Round: " + round.ToString();
         activePlayer.gameObject.SetActive(true);
+        if (GameObject.Find("PlayerCharacter") == null)
+        {
+            activePlayer.Glitch.SetActive(true);
+            GameObject destr = activePlayer.gameObject;
+            activePlayer = activePlayer.Glitch.GetComponent<PlayerCharacter>();
+            Destroy(destr);
+        }
         roundScreen.gameObject.SetActive(false);
         RoundStart();
     }
