@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 6
-  movementSpeed: 0.1
+  movementSpeed: 0.2
   minimumDistanceFromPlayer: 4
   distanceFromPlayer: 0
   maximumFiringRange: 7
