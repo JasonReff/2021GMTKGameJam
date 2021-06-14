@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 380979498}
   - component: {fileID: 380979497}
   - component: {fileID: 380979499}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NextRoundButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 607307806}
   - component: {fileID: 607307807}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ScreenBetweenRounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2726bd978841ac147a4383ce651bca0e, type: 3}
   m_Color: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   m_FlipX: 0
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 732138742}
   - component: {fileID: 732138741}
   - component: {fileID: 732138740}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 781534106}
   - component: {fileID: 781534108}
   - component: {fileID: 781534107}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NextRoundText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1220,7 +1220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1481146533}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1662,7 +1662,7 @@ GameObject:
   - component: {fileID: 2009441274}
   - component: {fileID: 2009441276}
   - component: {fileID: 2009441275}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundFinishedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

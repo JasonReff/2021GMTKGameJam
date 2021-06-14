@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NextRoundButton : MonoBehaviour
 {
-    public EnemySpawner enemySpawner;
+    public EventSystem enemySpawner;
     public GameObject roundScreen;
     private void OnMouseDown()
     {

@@ -31,7 +31,7 @@ public class QuestionMarkCorrupt : PlayerCharacter
     {
         if (collision.collider.gameObject.GetComponent<Enemy>() != null)
         {
-            collision.collider.gameObject.GetComponent<Enemy>().EnemyDeath();
+            collision.collider.gameObject.GetComponent<Enemy>().EnemyDies();
         }
         Uncorrupt();
     }
@@ -40,7 +40,7 @@ public class QuestionMarkCorrupt : PlayerCharacter
     {
         Glitch.SetActive(true);
         Glitch.transform.position = gameObject.transform.position;
-        GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = Glitch.GetComponent<PlayerCharacter>();
+        EventSystem.current.activePlayer = Glitch.GetComponent<PlayerCharacter>();
         Destroy(gameObject);
         Glitch.GetComponent<PlayerCharacter>().Uncorrupt();
         //add uncorrupt animation
