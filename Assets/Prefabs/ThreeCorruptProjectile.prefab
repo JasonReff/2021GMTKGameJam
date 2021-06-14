@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3804099492009070858, guid: deb408760ab11c04ea1f7f9b785d349a, type: 3}
       propertyPath: projectileForce
-      value: 35
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 8697085910663280610, guid: deb408760ab11c04ea1f7f9b785d349a, type: 3}
       propertyPath: m_RootOrder
