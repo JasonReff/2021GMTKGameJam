@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemySpawner : MonoBehaviour
+public class EventSystem : MonoBehaviour
 {
+    public static EventSystem current;
     public float time;
     public float enemyDelay;
     public int round;
@@ -38,6 +41,17 @@ public class EnemySpawner : MonoBehaviour
             RoundEnd();
         }
     }
+    public void EnemyDeath()
+    {
+        enemiesKilled++;
+        score += 20;
+    }
+    public void CorruptEnemy(PlayerCharacter corruptedEnemy)
+    {
+        activePlayer = corruptedEnemy;
+        enemiesKilled++;
+        score += 10;
+    }
 
     IEnumerator RemainingEnemies()
     {
@@ -56,6 +70,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        current = this;
         activePlayer = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>();
         enemyQueue = new Queue<int> { };
         RoundStart();
@@ -158,8 +173,12 @@ public class EnemySpawner : MonoBehaviour
         StopCoroutine(RemainingEnemies());
         enemiesKilled = 0;
         EndOfRoundPoints();
-        activePlayer.gameObject.SetActive(false);
         roundScreen.gameObject.SetActive(true);
+        if (GameObject.Find("PlayerCharacter") == null)
+        {
+            activePlayer.Uncorrupt();
+        }
+        activePlayer.gameObject.SetActive(false);
         roundFinishedTextbox.text = "Firewall " + round.ToString() + " Breached";
     }
 
@@ -173,13 +192,7 @@ public class EnemySpawner : MonoBehaviour
         round++;
         roundTextbox.text = "Round: " + round.ToString();
         activePlayer.gameObject.SetActive(true);
-        if (GameObject.Find("PlayerCharacter") == null)
-        {
-            activePlayer.Glitch.SetActive(true);
-            GameObject destr = activePlayer.gameObject;
-            activePlayer = activePlayer.Glitch.GetComponent<PlayerCharacter>();
-            Destroy(destr);
-        }
+        activePlayer.invincible = false;
         roundScreen.gameObject.SetActive(false);
         RoundStart();
     }

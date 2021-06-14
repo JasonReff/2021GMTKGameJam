@@ -17,9 +17,9 @@ public class PlayerReticle : MonoBehaviour
     private void FixedUpdate()
     {
         rb.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 8);
-        if (GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer != null)
+        if (EventSystem.current.activePlayer != null)
         {
-            PlayerCharacter activePlayer = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer;
+            PlayerCharacter activePlayer = EventSystem.current.activePlayer;
             characterToReticle = rb.transform.position - activePlayer.rb.transform.position;
         }
         characterToReticle.Normalize();

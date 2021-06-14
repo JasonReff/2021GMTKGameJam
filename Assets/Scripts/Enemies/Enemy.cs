@@ -36,9 +36,9 @@ public class Enemy : MonoBehaviour
     public IEnumerator FindPlayer()
     {
         yield return new WaitForSeconds(0.3f);
-        if (GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer != null)
+        if (EventSystem.current.activePlayer != null)
         {
-            player = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer.gameObject;
+            player = EventSystem.current.activePlayer.gameObject;
         }
         StartCoroutine(FindPlayer());
     }
@@ -117,14 +117,13 @@ public class Enemy : MonoBehaviour
         hp--;
         if (hp <= 0)
         {
-            EnemyDeath();
+            EnemyDies();
         }
     }
 
-    public void EnemyDeath()
+    public void EnemyDies()
     {
-        GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().enemiesKilled++;
-        GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().score += 20;
+        EventSystem.current.EnemyDeath();
         gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0, 0);
         Invoke("Destroy", 1.0f);
         anim.SetBool("dead", true);
