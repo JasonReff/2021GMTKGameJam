@@ -174,6 +174,7 @@ public class EventSystem : MonoBehaviour
         enemiesKilled = 0;
         EndOfRoundPoints();
         roundScreen.gameObject.SetActive(true);
+        UpgradeSystem.current.GetUpgrades();
         if (GameObject.Find("PlayerCharacter") == null)
         {
             activePlayer.Uncorrupt();

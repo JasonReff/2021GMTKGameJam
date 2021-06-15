@@ -45,6 +45,7 @@ public class PlayerCharacter : MonoBehaviour
     {
         if (invincible)
         {
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collision.collider.GetComponent<BoxCollider2D>());
             return;
         }
         if (IsEnemyDamage(collision))
