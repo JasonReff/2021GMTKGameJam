@@ -45,11 +45,16 @@ public class PlayerCharacter : MonoBehaviour
     {
         if (invincible)
         {
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collision.collider.GetComponent<BoxCollider2D>());
             return;
         }
         if (IsEnemyDamage(collision))
         {
             PlayerDeath();
+            return;
+        }
+        if (IsPickup(collision))
+        {
             return;
         }
         int corruptNumber = 0;
@@ -85,7 +90,6 @@ public class PlayerCharacter : MonoBehaviour
             PlayerCharacter newCorruptPlayer = corruptPlayer.GetComponent<PlayerCharacter>();
             CorruptEnemy(newCorruptPlayer);
         }
-
         gameObject.SetActive(false);
     }
 
@@ -100,6 +104,15 @@ public class PlayerCharacter : MonoBehaviour
     bool IsEnemyDamage(Collision2D collision)
     {
         if (collision.collider.GetComponent<Projectile>() != null)
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    bool IsPickup(Collision2D collision)
+    {
+        if (collision.collider.GetComponent<DataPickup>() != null)
         {
             return true;
         }

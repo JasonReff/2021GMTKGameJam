@@ -10,6 +10,7 @@ public class EventSystem : MonoBehaviour
     public static EventSystem current;
     public float time;
     public float enemyDelay;
+    public float pickupDelay = 5f;
     public int round;
     public Text roundTextbox;
     public int score;
@@ -24,6 +25,10 @@ public class EventSystem : MonoBehaviour
     public GameObject AmpersandEnemyPrefab;
     public GameObject AsteriskEnemyPrefab;
     public GameObject BracketEnemyPrefab;
+    public Queue<int> dataQueue;
+    public GameObject data1Prefab;
+    public GameObject data2Prefab;
+    public GameObject data3Prefab;
     public int enemiesKilled;
     public int maximumEnemies;
     public Text enemiesRemainingTextbox;
@@ -68,11 +73,19 @@ public class EventSystem : MonoBehaviour
         StartCoroutine(DeductPoints());
     }
 
+    IEnumerator PickupController()
+    {
+        yield return new WaitForSeconds(pickupDelay);
+        GetNextPickup();
+        StartCoroutine(PickupController());
+    }
+
     void Start()
     {
         current = this;
         activePlayer = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>();
         enemyQueue = new Queue<int> { };
+        dataQueue = new Queue<int> { };
         RoundStart();
     }
 
@@ -92,6 +105,8 @@ public class EventSystem : MonoBehaviour
         StartCoroutine(DeductPoints());
         StartCoroutine(RemainingEnemies());
         GenerateEnemyQueue();
+        GenerateDataQueue();
+        StartCoroutine(PickupController());
     }
 
     void GenerateEnemyQueue()
@@ -109,6 +124,24 @@ public class EventSystem : MonoBehaviour
         if (enemyQueue.Count > 0)
         {
             SpawnEnemy(enemyQueue.Dequeue());
+        }
+    }
+
+    void GenerateDataQueue()
+    {
+        int maximumData = round * 3;
+        for (int i = 0; i < maximumData; i++)
+        {
+            int dataPickupID = UnityEngine.Random.Range(1, 4);
+            dataQueue.Enqueue(dataPickupID);
+        }
+    }
+
+    void GetNextPickup()
+    {
+        if (dataQueue.Count > 0)
+        {
+            SpawnPickup(dataQueue.Dequeue());
         }
     }
 
@@ -167,13 +200,29 @@ public class EventSystem : MonoBehaviour
         }
     }
 
+    void SpawnPickup(int dataID)
+    {
+        GameObject dataPrefab = null;
+        switch (dataID)
+        {
+            case 1: dataPrefab = data1Prefab; break;
+            case 2: dataPrefab = data2Prefab; break;
+            case 3: dataPrefab = data3Prefab; break;
+        }
+        Vector2 position = new Vector2(UnityEngine.Random.Range(-8, 8), UnityEngine.Random.Range(-5, 5));
+        Instantiate(dataPrefab, position, Quaternion.identity);
+    }
+
     void RoundEnd()
     {
         StopCoroutine(DeductPoints());
         StopCoroutine(RemainingEnemies());
+        StopCoroutine(PickupController());
+        dataQueue.Clear();
         enemiesKilled = 0;
         EndOfRoundPoints();
         roundScreen.gameObject.SetActive(true);
+        UpgradeSystem.current.GetUpgrades();
         if (GameObject.Find("PlayerCharacter") == null)
         {
             activePlayer.Uncorrupt();
