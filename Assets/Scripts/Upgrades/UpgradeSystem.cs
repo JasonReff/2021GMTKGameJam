@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UpgradeSystem : MonoBehaviour
@@ -10,6 +11,7 @@ public class UpgradeSystem : MonoBehaviour
 
     public GameObject UpgradePanel;
     public GameObject upgradePrefab;
+    public TextMeshProUGUI dataTextbox;
     public int currentData = 0;
 
     public float bulletForceMultiplier;

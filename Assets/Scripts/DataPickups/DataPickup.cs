@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class DataPickup : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int data;
+    public float timeOnScreen;
+
+    private void Awake()
     {
-        
+        StartCoroutine(Disappear());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Disappear()
     {
-        
+        yield return new WaitForSeconds(timeOnScreen);
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Pickup();
+    }
+
+    public void Pickup()
+    {
+        EventSystem.current.score += data * 5;
+        UpgradeSystem.current.currentData += data;
+        Destroy(gameObject);
     }
 }

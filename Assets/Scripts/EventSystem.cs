@@ -24,6 +24,10 @@ public class EventSystem : MonoBehaviour
     public GameObject AmpersandEnemyPrefab;
     public GameObject AsteriskEnemyPrefab;
     public GameObject BracketEnemyPrefab;
+    public Queue<int> dataQueue;
+    public GameObject data1Prefab;
+    public GameObject data2Prefab;
+    public GameObject data3Prefab;
     public int enemiesKilled;
     public int maximumEnemies;
     public Text enemiesRemainingTextbox;
@@ -112,6 +116,24 @@ public class EventSystem : MonoBehaviour
         }
     }
 
+    void GenerateDataQueue()
+    {
+        int maximumData = round * 3;
+        for (int i = 0; i < maximumData; i++)
+        {
+            int dataPickupID = UnityEngine.Random.Range(1, 4);
+            dataQueue.Enqueue(dataPickupID);
+        }
+    }
+
+    void GetNextPickup()
+    {
+        if (dataQueue.Count > 0)
+        {
+            SpawnPickup(dataQueue.Dequeue());
+        }
+    }
+
     void SpawnEnemy(int e)
     {
         int wall = UnityEngine.Random.Range(1, 5);
@@ -165,6 +187,19 @@ public class EventSystem : MonoBehaviour
                 currentEnemy.GetComponent<Enemy>().player = activePlayer.gameObject;
                 break;
         }
+    }
+
+    void SpawnPickup(int dataID)
+    {
+        GameObject dataPrefab = null;
+        switch (dataID)
+        {
+            case 1: dataPrefab = data1Prefab; break;
+            case 2: dataPrefab = data2Prefab; break;
+            case 3: dataPrefab = data3Prefab; break;
+        }
+        Vector2 position = new Vector2(UnityEngine.Random.Range(-8, 8), UnityEngine.Random.Range(-5, 5));
+        Instantiate(dataPrefab, position, Quaternion.identity);
     }
 
     void RoundEnd()
