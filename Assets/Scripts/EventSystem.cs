@@ -41,7 +41,7 @@ public class EventSystem : MonoBehaviour
             time = 0;
             GetNextEnemy();
         }
-        if (enemiesKilled == maximumEnemies)
+        if (enemiesKilled >= maximumEnemies)
         {
             RoundEnd();
         }

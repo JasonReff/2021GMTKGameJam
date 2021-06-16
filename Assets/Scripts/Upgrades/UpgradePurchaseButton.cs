@@ -19,15 +19,27 @@ public class UpgradePurchaseButton : MonoBehaviour, IPointerEnterHandler, IPoint
     public void OnPointerClick(PointerEventData eventData)
     {
         upgrade.PurchaseUpgrade();
+        if (upgrade.upgradePurchased)
+        {
+            image.color = Color.red;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        image.color = Color.blue;
+        if (!upgrade.upgradePurchased)
+        {
+            image.color = Color.blue;
+        }
+        else image.color = Color.red;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        image.color = Color.red;
+        if (!upgrade.upgradePurchased)
+        {
+            image.color = Color.green;
+        }
+        else image.color = Color.red;
     }
 }

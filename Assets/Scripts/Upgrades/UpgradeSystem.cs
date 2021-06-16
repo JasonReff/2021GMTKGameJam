@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +12,7 @@ public class UpgradeSystem : MonoBehaviour
     public GameObject upgradePrefab;
     public TextMeshProUGUI combatDataText;
     public TextMeshProUGUI dataTextbox;
+    public TextMeshProUGUI ownedUpgradesTextbox;
     public int currentData = 0;
 
     public float bulletForceMultiplier;
@@ -22,6 +22,7 @@ public class UpgradeSystem : MonoBehaviour
     public float lifespanMultiplier;
 
     public List<string> potentialUpgrades;
+    public List<string> ownedUpgrades = new List<string> { };
 
     private void Start()
     {
@@ -32,6 +33,8 @@ public class UpgradeSystem : MonoBehaviour
     {
         dataTextbox.text = $"Data: {currentData}";
         combatDataText.text = $"Data: {currentData}";
+        string ownedUpgradesString = string.Join(" , ", ownedUpgrades);
+        ownedUpgradesTextbox.text = $"Owned Upgrades: {ownedUpgradesString}";
 
     }
 
