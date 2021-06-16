@@ -9,7 +9,7 @@ public class OCorrupt : CorruptPlayer
     {
         if (readyToFire)
         {
-            audioSource.clip = shootSound();
+            audioSource.clip = shootSound;
             audioSource.Play();
             Vector2 newDirection = reticle.characterToReticle.normalized;
             ShootProjectileWithForce(projectilePrefab, newDirection);
