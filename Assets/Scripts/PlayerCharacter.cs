@@ -53,6 +53,10 @@ public class PlayerCharacter : MonoBehaviour
             PlayerDeath();
             return;
         }
+        if (IsPickup(collision))
+        {
+            return;
+        }
         int corruptNumber = 0;
         if (collision.collider.gameObject.GetComponent<Enemy>() != null)
         {
@@ -86,7 +90,6 @@ public class PlayerCharacter : MonoBehaviour
             PlayerCharacter newCorruptPlayer = corruptPlayer.GetComponent<PlayerCharacter>();
             CorruptEnemy(newCorruptPlayer);
         }
-
         gameObject.SetActive(false);
     }
 
@@ -101,6 +104,15 @@ public class PlayerCharacter : MonoBehaviour
     bool IsEnemyDamage(Collision2D collision)
     {
         if (collision.collider.GetComponent<Projectile>() != null)
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    bool IsPickup(Collision2D collision)
+    {
+        if (collision.collider.GetComponent<DataPickup>() != null)
         {
             return true;
         }

@@ -10,6 +10,7 @@ public class EventSystem : MonoBehaviour
     public static EventSystem current;
     public float time;
     public float enemyDelay;
+    public float pickupDelay = 5f;
     public int round;
     public Text roundTextbox;
     public int score;
@@ -72,11 +73,19 @@ public class EventSystem : MonoBehaviour
         StartCoroutine(DeductPoints());
     }
 
+    IEnumerator PickupController()
+    {
+        yield return new WaitForSeconds(pickupDelay);
+        GetNextPickup();
+        StartCoroutine(PickupController());
+    }
+
     void Start()
     {
         current = this;
         activePlayer = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>();
         enemyQueue = new Queue<int> { };
+        dataQueue = new Queue<int> { };
         RoundStart();
     }
 
@@ -96,6 +105,8 @@ public class EventSystem : MonoBehaviour
         StartCoroutine(DeductPoints());
         StartCoroutine(RemainingEnemies());
         GenerateEnemyQueue();
+        GenerateDataQueue();
+        StartCoroutine(PickupController());
     }
 
     void GenerateEnemyQueue()
@@ -206,6 +217,8 @@ public class EventSystem : MonoBehaviour
     {
         StopCoroutine(DeductPoints());
         StopCoroutine(RemainingEnemies());
+        StopCoroutine(PickupController());
+        dataQueue.Clear();
         enemiesKilled = 0;
         EndOfRoundPoints();
         roundScreen.gameObject.SetActive(true);

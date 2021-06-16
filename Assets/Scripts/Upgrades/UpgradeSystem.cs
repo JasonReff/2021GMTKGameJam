@@ -11,6 +11,7 @@ public class UpgradeSystem : MonoBehaviour
 
     public GameObject UpgradePanel;
     public GameObject upgradePrefab;
+    public TextMeshProUGUI combatDataText;
     public TextMeshProUGUI dataTextbox;
     public int currentData = 0;
 
@@ -25,6 +26,13 @@ public class UpgradeSystem : MonoBehaviour
     private void Start()
     {
         current = this;
+    }
+
+    private void Update()
+    {
+        dataTextbox.text = $"Data: {currentData}";
+        combatDataText.text = $"Data: {currentData}";
+
     }
 
     public void GetUpgrades()
