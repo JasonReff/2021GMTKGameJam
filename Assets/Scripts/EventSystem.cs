@@ -41,7 +41,7 @@ public class EventSystem : MonoBehaviour
             time = 0;
             GetNextEnemy();
         }
-        if (enemiesKilled == maximumEnemies)
+        if (enemiesKilled >= maximumEnemies)
         {
             RoundEnd();
         }
@@ -132,7 +132,7 @@ public class EventSystem : MonoBehaviour
         int maximumData = round * 3;
         for (int i = 0; i < maximumData; i++)
         {
-            int dataPickupID = UnityEngine.Random.Range(1, 4);
+            int dataPickupID = UnityEngine.Random.Range(1, 101);
             dataQueue.Enqueue(dataPickupID);
         }
     }
@@ -205,9 +205,9 @@ public class EventSystem : MonoBehaviour
         GameObject dataPrefab = null;
         switch (dataID)
         {
-            case 1: dataPrefab = data1Prefab; break;
-            case 2: dataPrefab = data2Prefab; break;
-            case 3: dataPrefab = data3Prefab; break;
+            case int n when n <= 60: dataPrefab = data1Prefab; break;
+            case int n when n > 60 && n <= 90: dataPrefab = data2Prefab; break;
+            case int n when n >= 91: dataPrefab = data3Prefab; break;
         }
         Vector2 position = new Vector2(UnityEngine.Random.Range(-8, 8), UnityEngine.Random.Range(-5, 5));
         Instantiate(dataPrefab, position, Quaternion.identity);
