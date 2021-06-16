@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CorruptPlayer : PlayerCharacter
@@ -7,6 +5,9 @@ public class CorruptPlayer : PlayerCharacter
 
     public override void Start()
     {
+        fireDelay /= UpgradeSystem.current.fireRateMultiplier;
+        moveSpeed *= UpgradeSystem.current.movementSpeedMultiplier;
+        corruptLifespan *= UpgradeSystem.current.lifespanMultiplier;
         anim.SetBool("Corrupt", true);
         Invoke("StopAnimation", .8f);
         StartCoroutine(LifespanTick());
@@ -37,7 +38,16 @@ public class CorruptPlayer : PlayerCharacter
         EventSystem.current.activePlayer = Glitch.GetComponent<PlayerCharacter>();
         Destroy(gameObject);
         Glitch.GetComponent<PlayerCharacter>().Uncorrupt();
-        //add uncorrupt animation
+    }
+
+    public virtual void ShootProjectileWithForce(GameObject projectilePrefab, Vector2 direction)
+    {
+        Vector3 currentPosition = transform.position;
+        float bulletForce = projectilePrefab.GetComponent<Projectile>().projectileForce;
+        float bulletForceMultiplier = UpgradeSystem.current.bulletForceMultiplier;
+        bulletForce = bulletForce * bulletForceMultiplier;
+        GameObject newProjectile = Instantiate(projectilePrefab, currentPosition + (Vector3)direction, Quaternion.identity);
+        newProjectile.GetComponent<Rigidbody2D>().AddForce(direction * bulletForce);
     }
 
 }

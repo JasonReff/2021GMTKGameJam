@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -11,6 +9,7 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
+        rangeInSeconds *= UpgradeSystem.current.bulletRangeMultiplier;
         time = 0;
     }
 

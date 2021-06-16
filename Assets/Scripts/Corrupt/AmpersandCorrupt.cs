@@ -29,7 +29,6 @@ public class AmpersandCorrupt : CorruptPlayer
         audioSource.clip = shootSound;
         audioSource.Play();
         Vector2 newDirection = reticle.characterToReticle.normalized;
-        GameObject projectile = Instantiate(projectilePrefab, gameObject.transform.position + (Vector3)newDirection, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().AddForce(newDirection * projectile.GetComponent<Projectile>().projectileForce);
+        ShootProjectileWithForce(projectilePrefab, newDirection);
     }
 }
