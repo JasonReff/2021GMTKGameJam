@@ -238,6 +238,7 @@ public class EventSystem : MonoBehaviour
 
     public void NextRound()
     {
+        UpgradeSystem.current.DeleteUpgrades();
         round++;
         roundTextbox.text = "Round: " + round.ToString();
         activePlayer.gameObject.SetActive(true);

@@ -56,6 +56,15 @@ public class UpgradeSystem : MonoBehaviour
         }
     }
 
+    public void DeleteUpgrades()
+    {
+        for (int i = 1; i <= UpgradePanel.transform.childCount; i++)
+        {
+            GameObject upgrade = UpgradePanel.transform.GetChild(0).gameObject;
+            Destroy(upgrade);
+        }
+    }
+
     public GameObject GetRandomUpgrade(GameObject upgradeObject, string upgradeName)
     {
         Type t = Type.GetType(upgradeName);
