@@ -13,7 +13,10 @@ public class UpgradeSystem : MonoBehaviour
     public TextMeshProUGUI combatDataText;
     public TextMeshProUGUI dataTextbox;
     public TextMeshProUGUI ownedUpgradesTextbox;
+    public TextMeshProUGUI livesTextbox;
     public int currentData = 0;
+    public int lifeCost = 3;
+    public TextMeshProUGUI lifeCostTextbox;
 
     public float bulletForceMultiplier;
     public float movementSpeedMultiplier;
@@ -38,6 +41,29 @@ public class UpgradeSystem : MonoBehaviour
 
     }
 
+    public void GetLives()
+    {
+        livesTextbox.text = $"Lives: {PlayerCharacter.Glitch.lives}";
+        lifeCostTextbox.text = lifeCost.ToString();
+    }
+
+    public void PurchaseLife()
+    {
+        if (currentData >= lifeCost)
+        {
+            PlayerCharacter.Glitch.lives++;
+            livesTextbox.text = $"Lives: {PlayerCharacter.Glitch.lives}";
+            currentData -= lifeCost;
+            lifeCost++;
+            lifeCostTextbox.text = lifeCost.ToString();
+            Debug.Log("Life purchased.");
+        }
+        else
+        {
+            Debug.Log("Not enough data to purchase life.");
+        }
+    }
+
     public void GetUpgrades()
     {
         potentialUpgrades = new List<string> { "BulletForceUpgrade", "MovementSpeedUpgrade", "BulletRangeUpgrade",
@@ -53,6 +79,15 @@ public class UpgradeSystem : MonoBehaviour
             GameObject upgradeObject = Instantiate(upgradePrefab, UpgradePanel.transform);
             upgradeObject = GetRandomUpgrade(upgradeObject, upgradeName);
             upgradeObject.GetComponent<Upgrade>().GetText();
+        }
+    }
+
+    public void DeleteUpgrades()
+    {
+        for (int i = 1; i <= UpgradePanel.transform.childCount; i++)
+        {
+            GameObject upgrade = UpgradePanel.transform.GetChild(0).gameObject;
+            Destroy(upgrade);
         }
     }
 

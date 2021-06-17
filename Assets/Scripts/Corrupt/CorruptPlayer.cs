@@ -33,11 +33,11 @@ public class CorruptPlayer : PlayerCharacter
 
     public override void Uncorrupt()
     {
-        Glitch.SetActive(true);
-        Glitch.transform.position = gameObject.transform.position;
+        PlayerCharacter.Glitch.gameObject.SetActive(true);
+        PlayerCharacter.Glitch.transform.position = gameObject.transform.position;
         EventSystem.current.activePlayer = Glitch.GetComponent<PlayerCharacter>();
         Destroy(gameObject);
-        Glitch.GetComponent<PlayerCharacter>().Uncorrupt();
+        PlayerCharacter.Glitch.GetComponent<PlayerCharacter>().Uncorrupt();
     }
 
     public virtual void ShootProjectileWithForce(GameObject projectilePrefab, Vector2 direction)
