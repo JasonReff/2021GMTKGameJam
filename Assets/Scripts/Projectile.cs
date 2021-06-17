@@ -21,14 +21,7 @@ public class Projectile : MonoBehaviour
             }
             else if (collision.collider.gameObject.GetComponent<PlayerCharacter>() != null)
             {
-                if (collision.collider.gameObject.GetComponent<PlayerCharacter>().invincible)
-                {
-                    
-                }
-                else 
-                {
-                    collision.collider.gameObject.GetComponent<PlayerCharacter>().PlayerDeath();
-                }
+                
             }
         Destroy(gameObject);
     }

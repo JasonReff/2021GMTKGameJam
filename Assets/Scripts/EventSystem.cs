@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +15,7 @@ public class EventSystem : MonoBehaviour
     public Text roundTextbox;
     public int score;
     public Text scoreTextbox;
+    public TextMeshProUGUI combatLivesTextbox;
     public GameObject roundScreen;
     public Text roundFinishedTextbox;
     public PlayerCharacter activePlayer;
@@ -80,6 +81,13 @@ public class EventSystem : MonoBehaviour
         StartCoroutine(PickupController());
     }
 
+    IEnumerator UpdateLivesTextbox()
+    {
+        yield return new WaitForSeconds(0.1f);
+        combatLivesTextbox.text = $"Lives: {PlayerCharacter.Glitch.lives}";
+        StartCoroutine(UpdateLivesTextbox());
+    }
+
     void Start()
     {
         current = this;
@@ -107,6 +115,7 @@ public class EventSystem : MonoBehaviour
         GenerateEnemyQueue();
         GenerateDataQueue();
         StartCoroutine(PickupController());
+        StartCoroutine(UpdateLivesTextbox());
     }
 
     void GenerateEnemyQueue()
@@ -218,11 +227,13 @@ public class EventSystem : MonoBehaviour
         StopCoroutine(DeductPoints());
         StopCoroutine(RemainingEnemies());
         StopCoroutine(PickupController());
+        StopCoroutine(UpdateLivesTextbox());
         dataQueue.Clear();
         enemiesKilled = 0;
         EndOfRoundPoints();
         roundScreen.gameObject.SetActive(true);
         UpgradeSystem.current.GetUpgrades();
+        UpgradeSystem.current.GetLives();
         if (GameObject.Find("PlayerCharacter") == null)
         {
             activePlayer.Uncorrupt();

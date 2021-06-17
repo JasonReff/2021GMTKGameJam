@@ -17,15 +17,18 @@ public class PlayerCharacter : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip shootSound;
     public AudioClip deathSound;
-    public GameObject Glitch;
+    public static PlayerCharacter Glitch;
     public bool readyToFire = true;
     public float fireDelay;
     public float corruptLifespan;
     public float invincibilityTime;
     public bool invincible;
+    public int lives;
     Vector2 movement;
+
     public virtual void Start()
     {
+        Glitch = this;
         transform.position = new Vector2(0, 0);
     }
 
@@ -49,7 +52,7 @@ public class PlayerCharacter : MonoBehaviour
         }
         if (IsEnemyDamage(collision))
         {
-            PlayerDeath();
+            PlayerDamage();
             return;
         }
         if (IsPickup(collision))
@@ -96,7 +99,6 @@ public class PlayerCharacter : MonoBehaviour
     {
         corruptPlayer.reticle = reticle;
         corruptPlayer.audioSource = audioSource;
-        corruptPlayer.Glitch = gameObject;
         EventSystem.current.CorruptEnemy(corruptPlayer);
     }
 
@@ -201,6 +203,18 @@ public class PlayerCharacter : MonoBehaviour
         anim.SetBool("hit", true);
         yield return new WaitForSeconds(invincibilityTime);
         anim.SetBool("hit", false);
+    }
+
+    public void PlayerDamage()
+    {
+        lives--;
+        EventSystem.current.combatLivesTextbox.text = $"Lives: {lives}";
+        if (lives < 0)
+        {
+            PlayerDeath();
+            return;
+        }
+        StartCoroutine(IFrames());
     }
 
     public void PlayerDeath()

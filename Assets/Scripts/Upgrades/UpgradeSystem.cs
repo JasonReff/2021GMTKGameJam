@@ -13,7 +13,10 @@ public class UpgradeSystem : MonoBehaviour
     public TextMeshProUGUI combatDataText;
     public TextMeshProUGUI dataTextbox;
     public TextMeshProUGUI ownedUpgradesTextbox;
+    public TextMeshProUGUI livesTextbox;
     public int currentData = 0;
+    public int lifeCost = 3;
+    public TextMeshProUGUI lifeCostTextbox;
 
     public float bulletForceMultiplier;
     public float movementSpeedMultiplier;
@@ -36,6 +39,29 @@ public class UpgradeSystem : MonoBehaviour
         string ownedUpgradesString = string.Join(" , ", ownedUpgrades);
         ownedUpgradesTextbox.text = $"Owned Upgrades: {ownedUpgradesString}";
 
+    }
+
+    public void GetLives()
+    {
+        livesTextbox.text = $"Lives: {PlayerCharacter.Glitch.lives}";
+        lifeCostTextbox.text = lifeCost.ToString();
+    }
+
+    public void PurchaseLife()
+    {
+        if (currentData >= lifeCost)
+        {
+            PlayerCharacter.Glitch.lives++;
+            livesTextbox.text = $"Lives: {PlayerCharacter.Glitch.lives}";
+            currentData -= lifeCost;
+            lifeCost++;
+            lifeCostTextbox.text = lifeCost.ToString();
+            Debug.Log("Life purchased.");
+        }
+        else
+        {
+            Debug.Log("Not enough data to purchase life.");
+        }
     }
 
     public void GetUpgrades()
