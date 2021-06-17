@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quit : MonoBehaviour
+public class Button : MonoBehaviour
 {
-    void OnMouseDown()
+    //look mom I did inheritance
+    public void OnMouseDown()
     {
         gameObject.transform.position += new Vector3(0f, -1.0f, 0f);
-        Invoke("LoadLevel", 0.2f);
+        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(3.54f, 6.7f);
+        Invoke("Action", 0.2f);
     }
-    void LoadLevel()
+    public virtual void Action()
     {
-        gameObject.transform.position += new Vector3(0f, 1.0f, 0f);
-        Application.Quit();
     }
-    void OnMouseEnter()
+    public void OnMouseEnter()
     {
         gameObject.transform.position += new Vector3(0f, -0.5f, 0f);
         gameObject.GetComponent<BoxCollider2D>().size = new Vector2(3.54f, 4.7f);
     }
-    void OnMouseExit()
+    public void OnMouseExit()
     {
         gameObject.transform.position += new Vector3(0f, 0.5f, 0f);
         gameObject.GetComponent<BoxCollider2D>().size = new Vector2(3.54f, 3.87f);
