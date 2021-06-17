@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemySpawner : MonoBehaviour
+public class EventSystem : MonoBehaviour
 {
+    public static EventSystem current;
     public float time;
     public float enemyDelay;
+    public float pickupDelay = 5f;
     public int round;
     public Text roundTextbox;
     public int score;
@@ -21,6 +25,10 @@ public class EnemySpawner : MonoBehaviour
     public GameObject AmpersandEnemyPrefab;
     public GameObject AsteriskEnemyPrefab;
     public GameObject BracketEnemyPrefab;
+    public Queue<int> dataQueue;
+    public GameObject data1Prefab;
+    public GameObject data2Prefab;
+    public GameObject data3Prefab;
     public int enemiesKilled;
     public int maximumEnemies;
     public Text enemiesRemainingTextbox;
@@ -33,10 +41,21 @@ public class EnemySpawner : MonoBehaviour
             time = 0;
             GetNextEnemy();
         }
-        if (enemiesKilled == maximumEnemies)
+        if (enemiesKilled >= maximumEnemies)
         {
             RoundEnd();
         }
+    }
+    public void EnemyDeath()
+    {
+        enemiesKilled++;
+        score += 20;
+    }
+    public void CorruptEnemy(PlayerCharacter corruptedEnemy)
+    {
+        activePlayer = corruptedEnemy;
+        enemiesKilled++;
+        score += 10;
     }
 
     IEnumerator RemainingEnemies()
@@ -54,10 +73,19 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(DeductPoints());
     }
 
+    IEnumerator PickupController()
+    {
+        yield return new WaitForSeconds(pickupDelay);
+        GetNextPickup();
+        StartCoroutine(PickupController());
+    }
+
     void Start()
     {
+        current = this;
         activePlayer = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>();
         enemyQueue = new Queue<int> { };
+        dataQueue = new Queue<int> { };
         RoundStart();
     }
 
@@ -77,6 +105,8 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(DeductPoints());
         StartCoroutine(RemainingEnemies());
         GenerateEnemyQueue();
+        GenerateDataQueue();
+        StartCoroutine(PickupController());
     }
 
     void GenerateEnemyQueue()
@@ -94,6 +124,24 @@ public class EnemySpawner : MonoBehaviour
         if (enemyQueue.Count > 0)
         {
             SpawnEnemy(enemyQueue.Dequeue());
+        }
+    }
+
+    void GenerateDataQueue()
+    {
+        int maximumData = round * 3;
+        for (int i = 0; i < maximumData; i++)
+        {
+            int dataPickupID = UnityEngine.Random.Range(1, 101);
+            dataQueue.Enqueue(dataPickupID);
+        }
+    }
+
+    void GetNextPickup()
+    {
+        if (dataQueue.Count > 0)
+        {
+            SpawnPickup(dataQueue.Dequeue());
         }
     }
 
@@ -152,15 +200,35 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    void SpawnPickup(int dataID)
+    {
+        GameObject dataPrefab = null;
+        switch (dataID)
+        {
+            case int n when n <= 60: dataPrefab = data1Prefab; break;
+            case int n when n > 60 && n <= 90: dataPrefab = data2Prefab; break;
+            case int n when n >= 91: dataPrefab = data3Prefab; break;
+        }
+        Vector2 position = new Vector2(UnityEngine.Random.Range(-8, 8), UnityEngine.Random.Range(-5, 5));
+        Instantiate(dataPrefab, position, Quaternion.identity);
+    }
+
     void RoundEnd()
     {
         StopCoroutine(DeductPoints());
         StopCoroutine(RemainingEnemies());
+        StopCoroutine(PickupController());
+        dataQueue.Clear();
         enemiesKilled = 0;
         EndOfRoundPoints();
-        activePlayer.gameObject.SetActive(false);
         roundScreen.gameObject.SetActive(true);
-        roundFinishedTextbox.text = "Round " + round.ToString() + " Finished";
+        UpgradeSystem.current.GetUpgrades();
+        if (GameObject.Find("PlayerCharacter") == null)
+        {
+            activePlayer.Uncorrupt();
+        }
+        activePlayer.gameObject.SetActive(false);
+        roundFinishedTextbox.text = "Firewall " + round.ToString() + " Breached";
     }
 
     void EndOfRoundPoints()
@@ -173,13 +241,7 @@ public class EnemySpawner : MonoBehaviour
         round++;
         roundTextbox.text = "Round: " + round.ToString();
         activePlayer.gameObject.SetActive(true);
-        if (GameObject.Find("PlayerCharacter") == null)
-        {
-            activePlayer.Glitch.SetActive(true);
-            GameObject destr = activePlayer.gameObject;
-            activePlayer = activePlayer.Glitch.GetComponent<PlayerCharacter>();
-            Destroy(destr);
-        }
+        activePlayer.invincible = false;
         roundScreen.gameObject.SetActive(false);
         RoundStart();
     }

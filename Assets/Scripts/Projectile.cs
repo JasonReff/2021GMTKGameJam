@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -11,6 +9,7 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
+        rangeInSeconds *= UpgradeSystem.current.bulletRangeMultiplier;
         time = 0;
     }
 
@@ -18,7 +17,7 @@ public class Projectile : MonoBehaviour
     {
             if (collision.collider.gameObject.GetComponent<Enemy>() != null)
             {
-                collision.collider.gameObject.GetComponent<Enemy>().EnemyDeath();
+                collision.collider.gameObject.GetComponent<Enemy>().EnemyDies();
             }
             else if (collision.collider.gameObject.GetComponent<PlayerCharacter>() != null)
             {

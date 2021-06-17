@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
@@ -32,6 +31,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public virtual void Awake()
     {
+
     }
 
 
@@ -44,11 +44,16 @@ public class PlayerCharacter : MonoBehaviour
     {
         if (invincible)
         {
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collision.collider.GetComponent<BoxCollider2D>());
             return;
         }
         if (IsEnemyDamage(collision))
         {
             PlayerDeath();
+            return;
+        }
+        if (IsPickup(collision))
+        {
             return;
         }
         int corruptNumber = 0;
@@ -81,20 +86,32 @@ public class PlayerCharacter : MonoBehaviour
         }
         if (corruptPlayer != null)
         {
-            corruptPlayer.GetComponent<PlayerCharacter>().reticle = reticle;
-            corruptPlayer.GetComponent<PlayerCharacter>().audioSource = audioSource;
-            corruptPlayer.GetComponent<PlayerCharacter>().Glitch = gameObject;
-            GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().activePlayer = corruptPlayer.GetComponent<PlayerCharacter>();
-            GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().enemiesKilled++;
-            GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().score += 10;
+            PlayerCharacter newCorruptPlayer = corruptPlayer.GetComponent<PlayerCharacter>();
+            CorruptEnemy(newCorruptPlayer);
         }
-
         gameObject.SetActive(false);
+    }
+
+    public void CorruptEnemy(PlayerCharacter corruptPlayer)
+    {
+        corruptPlayer.reticle = reticle;
+        corruptPlayer.audioSource = audioSource;
+        corruptPlayer.Glitch = gameObject;
+        EventSystem.current.CorruptEnemy(corruptPlayer);
     }
 
     bool IsEnemyDamage(Collision2D collision)
     {
         if (collision.collider.GetComponent<Projectile>() != null)
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    bool IsPickup(Collision2D collision)
+    {
+        if (collision.collider.GetComponent<DataPickup>() != null)
         {
             return true;
         }
@@ -193,9 +210,8 @@ public class PlayerCharacter : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().size = new Vector2 (0, 0);
         Invoke("GameOver", 2f);
         anim.SetBool("dead", true);
-        GameObject eSpawn = GameObject.Find("EnemySpawner");
-        PlayerPrefs.SetInt("score", eSpawn.GetComponent<EnemySpawner>().score);
-        PlayerPrefs.SetInt("round", eSpawn.GetComponent<EnemySpawner>().round);
+        PlayerPrefs.SetInt("score", EventSystem.current.score);
+        PlayerPrefs.SetInt("round", EventSystem.current.round);
     }
 
     public void GameOver()
