@@ -34,7 +34,7 @@ public class QuestionMarkCorrupt : CorruptPlayer
 
     void OFire()
     {
-        audioSource.clip = ThreeFireSound;
+        audioSource.clip = OFireSound;
         audioSource.Play();
         Vector2 newDirection = reticle.characterToReticle.normalized;
         ShootProjectileWithForce(OProjectile, newDirection);
@@ -62,10 +62,10 @@ public class QuestionMarkCorrupt : CorruptPlayer
         audioSource.Play();
         Vector2 direction = reticle.characterToReticle.normalized;
         Vector3 currentPosition = transform.position;
-        float bulletForce = projectilePrefab.GetComponent<Projectile>().projectileForce;
+        float bulletForce = BracketProjectile.GetComponent<Projectile>().projectileForce;
         float bulletForceMultiplier = UpgradeSystem.current.bulletForceMultiplier;
         bulletForce = bulletForce * bulletForceMultiplier;
-        GameObject newProjectile = Instantiate(projectilePrefab, currentPosition + (Vector3)direction, Quaternion.identity);
+        GameObject newProjectile = Instantiate(BracketProjectile, currentPosition + (Vector3)direction, Quaternion.identity);
         newProjectile.GetComponent<Rigidbody2D>().AddForce(direction * bulletForce);
         float rotation = Vector2.Angle(direction, new Vector2(-1, 0));
         newProjectile.transform.Rotate(0, 0, rotation);
@@ -121,7 +121,7 @@ public class QuestionMarkCorrupt : CorruptPlayer
         directions.Add(direction8);
         for (int i = 0; i <= 7; i++)
         {
-            ShootProjectileWithForce(projectilePrefab, directions[i]);
+            ShootProjectileWithForce(AsteriskProjectile, directions[i]);
         }
         readyToFire = false;
         StartCoroutine(FireRecharge());

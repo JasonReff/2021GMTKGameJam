@@ -4,25 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class GoToCredits : MonoBehaviour
+public class GoToCredits : Button
 {
-    void OnMouseDown()
-    {
-        gameObject.transform.position += new Vector3(0f, -1.0f, 0f);
-        Invoke("LoadLevel", 0.2f);
-    }
-    void LoadLevel()
+    void Action()
     {
         Application.LoadLevel("Credits");
-    }
-    void OnMouseEnter()
-    {
-        gameObject.transform.position += new Vector3(0f, -0.5f, 0f);
-        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(3.54f, 4.7f);
-    }
-    void OnMouseExit()
-    {
-        gameObject.transform.position += new Vector3(0f, 0.5f, 0f);
-        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(3.54f, 3.87f);
     }
 }
